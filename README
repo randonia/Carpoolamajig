@@ -1,3 +1,25 @@
-#https://github.com/randonia/Carpoolamajig
+# Carpoolamajig
+# Carpool-to-event organizer
+# This is a class project for CMPS183 - Hypermedia and the Web here at 
+# University of California, Santa Cruz. 
+#
+# Eventually the project will be posted on http://www.carpoolamajig.com for use
+# You can view the class page here: 
+# http://cmps183-fall2011.soe.ucsc.edu/doku.php?id=carpoolamajig_project
 
-#git push -u origin master
+# This project is designed and implemented by:
+# Ryan Andonian     -    randonia(Å)ucsc.edu
+# Alex Schneider    -    ascheid(Å)ucsc.edu
+# Zane Mariano      -    zmariano(Å)ucsc.edu
+# Vivian Wong       -    vewong(Å)ucsc.edu
+
+# This project uses Maria-DB, which is supposedly a drop-in replacement
+# for Oracle's bastardized MySQL database.
+# Installation instructions can be found here:
+# http://vbtechsupport.com/763/ or by Googling "Install MariaDB"
+
+# Ignore these :P
+# https://github.com/randonia/Carpoolamajig
+# Clone the above directory, and follow the setup (located on github)
+# git push -u origin master
+
