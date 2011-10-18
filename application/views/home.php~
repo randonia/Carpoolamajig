@@ -1,0 +1,15 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title><? echo $title;?> </title>
+</head>
+<body>
+<p><a href="http://www.youtube.com/watch?v=izGwDsrQ1eQ">Hello, Link</a><br>
+<img src=<? echo '"' . $imageURL . '"' ?> height="256" width="256" alt="Shoulda known not to cheat a friend">
+<a href="http://validator.w3.org/check?uri=referer"><img
+      src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+  </p>
+</body>
+</html>
