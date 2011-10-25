@@ -1,0 +1,2 @@
+<?= generateHeader($title)?>
+<?= generateFooter()?>
