@@ -1,0 +1,25 @@
+DB Design Doc
+
+DB Connection shit:
+DB: cpmj
+User: cpmj_user
+Pass: xcecdscmc
+
+^ These should all be located in a main config file ^
+
+Users
+uuid|login|pwhash|email
+VARCHAR(uuid):128   - this'll be a sha1 hash of the login (refer to examples)
+VARCHAR(login):25  - this is just the login name
+VARCHAR(pwhash):255 - a hash of password using their uuid as seed
+VARCHAR(email):89  - their email
+
+Bios
+uuid|image|bio
+
+
+PoolerBios
+uuid|
+
+RiderBios
+uuid|

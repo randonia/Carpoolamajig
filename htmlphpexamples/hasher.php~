@@ -1,0 +1,7 @@
+<?
+if($_POST){
+
+} else {
+   $output = '<html><body><form name="formy" action="hasher.php" method="post">
+}
+?>
