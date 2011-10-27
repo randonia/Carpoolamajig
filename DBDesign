@@ -10,13 +10,15 @@ Pass: xcecdscmc
 Users
 uuid|login|pwhash|email
 VARCHAR(uuid):128   - this'll be a sha1 hash of the login (refer to examples)
-VARCHAR(login):25  - this is just the login name
+VARCHAR(login):25   - this is just the login name
 VARCHAR(pwhash):255 - a hash of password using their uuid as seed
-VARCHAR(email):89  - their email
+VARCHAR(email):89   - their email
 
 Bios
 uuid|image|bio
-
+VARCHAR(uuid):128   - foreign key to Users.uuid
+VARCHAR(image):64   - relative path to the user's uploaded image
+VARCHAR(bio):512    - A short bio summarizing the user, written by the user
 
 PoolerBios
 uuid|
