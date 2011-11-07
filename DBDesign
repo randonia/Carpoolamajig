@@ -1,9 +1,16 @@
 DB Design Doc
 
-DB Connection shit:
+DB Local Connection shit:
 DB: cpmj
 User: cpmj_user
 Pass: xcecdscmc
+
+DB Remote Connection stuff:
+DB: zambinid_cpmj
+User: zambinid_cpmjusr
+Pass: xcecdscmc
+
+
 
 ^ These should all be located in a main config file ^
 
