@@ -9,11 +9,10 @@ class Home extends CI_Controller{
         #    $this->load->view("login",$data);
         #}
         $data['uuid'] = $this->input->cookie('uuid');
-        $this->load->helper("standard.php");
         $this->load->view("home",$data);
     }
-    function login(){
-        
+    function poop(){
+      $this->load->view("home");
     }
 }
 
