@@ -1,5 +1,5 @@
-<?echo generateHeader($title)?>
-
+<?= generateHeader($title)?>
+<?= closeHeader()?>
     <h1>Carpoolamajig</h1>
     <div id="body">
     <p>This page/project still under development. <a href="http://cmps183-fall2011.soe.ucsc.edu/doku.php?id=carpoolamajig_project">Here</a> is our class project page<br>
