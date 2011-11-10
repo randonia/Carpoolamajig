@@ -1,0 +1,23 @@
+<?
+
+class Login extends CI_Controller{
+
+      function index(){
+	$data['title'] = "User Registration Page";
+	$this->load->view("login",$data);
+      }
+
+      function commitForm(){
+	# super simple validation
+	if(!isset($_POST) || $_POST['username'] == "" || $_POST['password1'] == "" || $_POST['password2'] == "" || $_POST['email'] == ""){
+	  $data['title'] = "User Registration Page";
+	  $data['errorcode'] = "You didn't do it right son";
+	  $this->load->view("login",$data);
+	}
+	else {
+	  $this->load->helper('url');
+	  echo($_POST['username'] . "," . $_POST['password1']);
+#	  $this->load->view("registered");
+	}
+      }
+}
