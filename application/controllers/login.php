@@ -23,8 +23,27 @@ class Login extends CI_Controller{
          redirect("login",'refresh');
 	}
 	else {
-	  $this->load->helper('url');
-	  echo($_POST['username'] . "," . $_POST['password1']);
+      $this->load->helper('url');
+      #*****
+      #FIXME: Check if the user or email exists already
+      #*****
+      $data = array('username' => $_POST['username'], 
+          'password' => $_POST['password1'], 'email' => $_POST['email']);
+      #Generate the array to use
+
+      #Insert the user into the database
+      $this->db->insert('users', $data);
+
+      #*****
+      #FIXME: We can't do plaintext passwords. Fix this later.
+      #*****
+
+      $foo = $this->db->query('SELECT * FROM users');
+      foreach($foo->result() as $row){
+          echo $row->id;
+          echo $row->username;
+          echo $row->password;
+      }
 #	  $this->load->view("registered");
 	}
       }
