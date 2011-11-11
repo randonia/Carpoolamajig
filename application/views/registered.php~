@@ -1,0 +1,9 @@
+<?= generateHeader($title)?>
+<?= closeHeader()?>
+<h1>User Registration</h1>
+<div id="body">
+   <p>
+   </p>
+   
+</div>
+<?= generateFooter()?>

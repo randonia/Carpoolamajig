@@ -35,16 +35,15 @@ class Login extends CI_Controller{
       $this->db->insert('users', $data);
 
       #*****
-      #FIXME: We can't do plaintext passwords. Fix this later.
+      #FIXME: We can't do plaintext passwords. Fix this later
       #*****
 
-      $foo = $this->db->query('SELECT * FROM users');
-      foreach($foo->result() as $row){
-          echo $row->id;
-          echo $row->username;
-          echo $row->password;
-      }
-#	  $this->load->view("registered");
+      #Set the user data field "user" to the username!
+      $this->session->set_userdata('user',$_POST['username']);
+      #Push that into the array to pass into the view
+      $data['title'] = "Welcome " . $_POST['username'];
+      #Load the view "registered"
+	  $this->load->view("registered", $data);
 	}
       }
 }
