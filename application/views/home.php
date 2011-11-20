@@ -19,6 +19,7 @@
        <ul>
        <li><a href="index.php/register">Registration Page</a></li>
        <li><a href="index.php/login">Login Page</a></li>
+       <li><a href="index.php/events">Events Page</a></li>
        </ul>
     </p>
         <a href="http://www.youtube.com/watch?v=izGwDsrQ1eQ">In the mean time, enjoy this.</a>
