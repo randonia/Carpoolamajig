@@ -5,7 +5,7 @@
 <div class="center">Carpoolamajig</div><div class="login"><?
        if($this->session->userdata('username')){
            echo "Logged in as: " . $this->session->userdata('username') . " ";
-           echo "<a href='index.php/logout'>|Logout|</a>";
+           echo "<a href='" . site_url() . "/logout'>|Logout|</a>";
        } else {
            echo '<a href="index.php/login">Login</a>';
        }
