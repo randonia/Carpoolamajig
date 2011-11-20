@@ -1,27 +1,18 @@
-::selection{ background-color: #E13300; color: white; }
-::moz-selection{ background-color: #E13300; color: white; }
-::webkit-selection{ background-color: #E13300; color: white; }
 body {
-    background-color: #fff;
-    margin: 40px
+    background-color: #3D3D3D;
+    margin: 40px;
     font: 13px/20px normal Helvetica, Arial, sans-serif;
     color: #B1D372;
 	
-background: rgb(125,126,125); /* Old browsers */
-background: -moz-linear-gradient(top,  rgba(125,126,125,1) 0%, rgba(14,14,14,1) 86%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(125,126,125,1)), color-stop(86%,rgba(14,14,14,1))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 86%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 86%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 86%); /* IE10+ */
-background: linear-gradient(top,  rgba(125,126,125,1) 0%,rgba(14,14,14,1) 86%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-9 */
 
 }
 
 a {
-    color: #003399;
+    color: #0084B1;
+	/*#00A08B; Dark GreenBlue*/
     background-color: transparent;
     font-weight: normal;
+	text-decoration: none;
 }
 
 h1 {
@@ -32,10 +23,7 @@ h1 {
     margin: 0 0 14px 0;
     padding: 14px 15px 10px 15px;
 	
-	
-	
 	/*Background Gradients*/
-
 	background: rgb(177,211,114); /* Old browsers */
 	background: -moz-linear-gradient(left,  rgba(177,211,114,1) 0%, rgba(56,165,19,1) 50%, rgba(177,211,114,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(177,211,114,1)), color-stop(50%,rgba(56,165,19,1)), color-stop(100%,rgba(177,211,114,1))); /* Chrome,Safari4+ */
@@ -46,34 +34,43 @@ h1 {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b1d372', endColorstr='#b1d372',GradientType=1 ); /* IE6-9 */
 }
 
-
-.center {
-	color: #000000;
+/***** Classes *****/
+/* For Header Format */
+.left {
+	font-size: 32px;
+	color: #168400;
 	text-align: left;
+	text-shadow: 1px 1px 1px #000000;
 }
 
-.login {
+.right {
 	text-align: right;
 }
 
-.center, .login {
+.left, .right {
 	display: inline-block;
 	width: 50%;
 }
 
-code {
-    font-family: Consolas, Monaco, Courier New, Courier, monospace;
-    font-size: 12px;
-    background-color: #f9f9f9;
-    border: 1px solid #D0D0D0;
-    color: #002166;
-    display: block;
-    margin: 14px 0 14px 0;
-    padding: 12px 10px 12px 10px;
+/* For Links */
+.inText {
+	color: #38A513;
 }
+
+.inNav {
+	text-shadow: 1px 2px 1px #000000;
+	text-transform: uppercase;
+}
+
+.inHeader {
+	text-shadow: 1px 1px 1px #000000;
+	text-transform: uppercase;
+}
+
+
+
 #body{
     margin: 0 15px 0 15px;
-	text-align: right;
 }
 p.footer{
     text-align: right;
@@ -88,3 +85,14 @@ p.footer{
     border: 1px solid #D0D0D0;
     -webkit-box-shadow: 0 0 8px #D0D0D0;
 }"
+
+/*code {
+    font-family: Consolas, Monaco, Courier New, Courier, monospace;
+    font-size: 12px;
+    background-color: #f9f9f9;
+    border: 1px solid #D0D0D0;
+    color: #002166;
+    display: block;
+    margin: 14px 0 14px 0;
+    padding: 12px 10px 12px 10px;
+}*/

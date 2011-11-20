@@ -1,0 +1,7 @@
+Backgrounds:
+Left / Right Header Green: 177,211,114 - #
+Middle Header Green: 56,165,19 - 
+
+Texts:
+Header Text: 
+Menu Links: #0084B1
