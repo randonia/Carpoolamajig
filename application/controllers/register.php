@@ -32,10 +32,17 @@ class Register extends CI_Controller{
       $this->load->helper('url');
 
       #Check if the username exists!
-      $namecheck = $this->db->query("SELECT username FROM users WHERE " . 
-          "`username`='" . $_POST['username'] . "'");
+      $query = $this->db->get_where('users', array('username' => $_POST['username']));
+#      $namecheck = $this->db->query("SELECT username FROM users WHERE " . 
+#          "`username`='" . $_POST['username'] . "'");
       #If it does, set some flash data for failure
-      if(isset($namecheck)){
+      $flag = false;
+      #The existence of a row here means the query returned something, which means the username
+      # exists in the database
+      foreach ($query->result() as $row){
+          $flag = true;
+      }
+      if($flag){
           #state is 'registrationFailed' and errorcode is 'usernameTaken'
           $this->session->set_flashdata("state","registrationFailed");
           $this->session->set_flashdata("errorcode","usernameTaken");
