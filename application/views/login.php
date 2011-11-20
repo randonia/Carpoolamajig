@@ -1,4 +1,4 @@
-<?= generateHeader($title)?>
+<?= generateHeader($title,base_url())?>
 <?= closeHeader()?>
 <h1>Login to Carpoolamajig</h1>
 <div id="body">

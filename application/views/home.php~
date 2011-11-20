@@ -1,15 +1,32 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-"http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title><? echo $title;?> </title>
-</head>
-<body>
-<p><a href="http://www.youtube.com/watch?v=izGwDsrQ1eQ">Hello, Link</a><br>
-<img src=<? echo '"' . $imageURL . '"' ?> height="256" width="256" alt="Shoulda known not to cheat a friend">
-<a href="http://validator.w3.org/check?uri=referer"><img
-      src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
-  </p>
-</body>
-</html>
+<?= generateHeader($title)?>
+<?= closeHeader()?>
+    <h1>Carpoolamajig</h1>
+<p id="logintext">
+<?
+       if($this->session->userdata('username')){
+           echo "Logged in as: " . $this->session->userdata('username') . " ";
+           echo "<a href='index.php/logout'>|Logout|</a>";
+       } else {
+           echo "LOGIN HERE BITCH ";
+       }
+?>
+</p>
+
+    <div id="body">
+    <p>This page/project still under development. <a href="http://cmps183-fall2011.soe.ucsc.edu/doku.php?id=carpoolamajig_project">Here</a> is our class project page</p>
+    <p>Pages we have up: <br>
+       <ul>
+       <li><a href="index.php/register">Registration Page</a></li>
+       <li><a href="index.php/login">Login Page</a></li>
+       </ul>
+    </p>
+        <a href="http://www.youtube.com/watch?v=izGwDsrQ1eQ">In the mean time, enjoy this.</a>
+    </p>
+
+    <p class="footer">
+         <? if(isset($dateMod)){echo "This page was last updated on $dateMod";}?> 
+We are using <a href="http://codeigniter.com/">CodeIgniter</a> for this project. w00tcakes.</p>
+       <? 
+       ?>
+    </div>
+<?echo generateFooter()?>

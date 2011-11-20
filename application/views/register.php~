@@ -1,4 +1,4 @@
-<?= generateHeader($title,base_url())?>
+<?= generateHeader($title)?>
 <?= closeHeader()?>
 <h1>New User Registration Form</h1>
 <div id="body">

@@ -4,7 +4,6 @@ class Register extends CI_Controller{
 
       function index(){
           $data['title'] = "User Registration Page";
-          $data['baseURL'] = base_url();
           #Check to see if we have some flash data signifying registration failure
           if($this->session->flashdata('state') == "registrationFailed"){
               $data['errorcode'] = $this->session->flashdata('errorcode');

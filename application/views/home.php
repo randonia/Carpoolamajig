@@ -1,17 +1,18 @@
-<?= generateHeader($title)?>
+<?= generateHeader($title,base_url())?>
 <?= closeHeader()?>
-    <h1>Carpoolamajig</h1>
-<p id="logintext">
-<?
+<h1>
+<div>
+<div class="center">Carpoolamajig</div><div class="login"><?
        if($this->session->userdata('username')){
            echo "Logged in as: " . $this->session->userdata('username') . " ";
-           echo "<a href='logout'>|Logout|</a>";
+           echo "<a href='index.php/logout'>|Logout|</a>";
        } else {
-           echo "LOGIN HERE BITCH ";
+           echo '<a href="index.php/login">Login</a>';
        }
 ?>
-</p>
-
+</div>
+</div>
+</h1>
     <div id="body">
     <p>This page/project still under development. <a href="http://cmps183-fall2011.soe.ucsc.edu/doku.php?id=carpoolamajig_project">Here</a> is our class project page</p>
     <p>Pages we have up: <br>
