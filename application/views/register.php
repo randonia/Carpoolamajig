@@ -3,7 +3,7 @@
 		function validate()
 		{
 			// Sets user to the value of the username form value
-			var user = document.forms[registrationForm"]["username"].value;
+			var user = document.forms["registrationForm"]["username"].value;
 			
 			// Ensure the user entered a username
 			if (user == null || user == "")
