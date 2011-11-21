@@ -1,0 +1,6 @@
+To add events to a date:
+	1) Go into the controllers folder and find and open calendar
+	2) In the $data array, add the day you want the event to be on and assign it a string with the name of the event
+	3) If there's more than one event on a day, make an array and put the names of the events on that day into the array
+	4) ???
+	5) Profit!
