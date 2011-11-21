@@ -1,2 +1,48 @@
 DB Design Doc
 
+DB Local Connection shit:
+DB: cpmj
+User: cpmj_user
+Pass: xcecdscmc
+
+DB Remote Connection stuff:
+DB: zambinid_cpmj
+User: zambinid_cpmjusr
+Pass: xcecdscmc
+
+
+
+^ These should all be located in a main config file ^
+
+CREATE TABLE `users` (
+`id` INT( 11 ) NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+`username` VARCHAR( 64 ) NOT NULL ,
+`password` VARCHAR( 64 ) NOT NULL ,
+UNIQUE (
+`username`
+)
+);
+
+
+Emails
+uuid|login|pwhash|email
+INT(uuid):11   - this'll be a sha1 hash of the login (refer to examples)
+VARCHAR(email):89   - their email
+
+Bios
+uuid|image|bio
+VARCHAR(uuid):128   - foreign key to Users.uuid
+VARCHAR(image):64   - relative path to the user's uploaded image
+VARCHAR(bio):512    - A short bio summarizing the user, written by the user
+
+PoolerBios
+uuid|score|carMake|carSeats|carGasComp|carAmenities|numRides
+
+RiderBios
+uuid|score
+
+Events
+uuid|date|title|startAddr|endAddr|info
+
+Pools
+uuid|date|title|start|destination
