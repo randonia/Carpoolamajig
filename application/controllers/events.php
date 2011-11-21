@@ -24,6 +24,7 @@ class Events extends CI_Controller{
     function addEvent(){
         $data['title'] = "Event has been added";
         $time = $_POST['dateDay'] . " " . $_POST['dateMonth'] . " " . $_POST['dateYear'];
+        echo $time;
         $ppeople = -1;
         if($_POST['vis'] == "public"){
             $ppeople = "-1" . "|" . $this->session->userdata('username');
@@ -36,16 +37,20 @@ class Events extends CI_Controller{
             'endAddr' => $_POST['endAddr'],
             'info' => $_POST['description'],
             'permissionedPeople' => $ppeople);
-        echo "QUERY: <br>";
-        print_r($query);
+        $this->db->insert('events',$query);
+        echo "WOOT";
     }
 
     function showEvent($id=0){
         #if no argument is provided, then they should just be forwarded to the main page
-        #because fuck you.
+        # because fuck you.
         if($id==0){
             redirect(site_url(),"refresh");
         }
-        echo $id;
+        $query = $this->db->get_where('events',array('uuid'=>$id));
+        foreach($query->result() as $row){
+            #this is baus
+            print_r($row);
+        }
     }
 }

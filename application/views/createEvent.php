@@ -42,7 +42,7 @@
 			// Check to make sure the user's selected date hasn't already happened
 			
 			// Get today's date
-			var todayDate = new Date()'
+			var todayDate = new Date();
 			todayDate = getTime();
 			
 			// String of months used to find the numerical month value
@@ -93,11 +93,7 @@
 <div id="body">
 <p>
 Fill in the information for your event!
-<<<<<<< Updated upstream
-<form name="eventForm" method="post" onsubmit="validate()">
-=======
-<form method="post" onsubmit="validate()" action="addEvent">
->>>>>>> Stashed changes
+<form name="eventForm" method="post" onsubmit="return validate()" action="addEvent">
        Title: <input type="text" name="eventTitle" size=50><br>
        Month: <select name="dateMonth">
        <option value="Jan">January</option>
@@ -125,13 +121,9 @@ Fill in the information for your event!
        Start Address: <input type="text" name="startAddr" size=40><br>
        End Address: <input type="text" name="endAddr" size=40><br>
        <!-- THIS NEEDS A BIG TEXTBOX! -->
-<<<<<<< Updated upstream
        Description: <input type="text" name="description" size=50 height=50><br>
-       Visibility: <input type="radio" name="vis" value="public">Public</input> <input type="radio" name="vis" value="private">Private</input><br>
-=======
-       Description: <input type="info" size=50 height=50><br>
        Visibility: <input type="radio" name="vis" value="public" checked>Public</input> <input type="radio" name="vis" value="private">Private</input><br>
->>>>>>> Stashed changes
+
        <input type="submit">
 </form>
 
