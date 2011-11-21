@@ -42,7 +42,7 @@ RiderBios
 uuid|score
 
 Events
-uuid|date|title|startAddr|endAddr|info
+uuid|date|title|startAddr|endAddr|info|permissionedPpl
 
 Pools
 uuid|date|title|start|destination
