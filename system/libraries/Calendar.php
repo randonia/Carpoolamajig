@@ -37,6 +37,7 @@ class CI_Calendar {
 	var $day_type		= 'abr';
 	var $show_next_prev	= FALSE;
 	var $next_prev_url	= '';
+	var $several_events;
 
 	/**
 	 * Constructor
@@ -218,7 +219,19 @@ class CI_Calendar {
 					{
 						// Cells with content
 						$temp = ($is_current_month == TRUE AND $day == $cur_day) ? $this->temp['cal_cell_content_today'] : $this->temp['cal_cell_content'];
-						$out .= str_replace('{day}', $day, str_replace('{content}', $data[$day], $temp));
+						//if more than one event on the same day
+						if (is_array($data[$day]))
+						{
+							$several_events = '';
+							foreach ($data[$day] as $key => $value)
+							{
+								$several_events .= '<br /><a href="'.$value.'">'.$value.'</a>';
+							}
+							$out .= str_replace('{day}', $day, str_replace('<a href="{content}"><span class="day_listing">{day}</span></a>', $day.$several_events, $temp));
+						}
+						else {
+							$out .= str_replace('{day}', $day, str_replace('{content}', $data[$day], $temp));
+						}
 					}
 					else
 					{
