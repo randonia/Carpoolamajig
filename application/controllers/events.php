@@ -16,9 +16,16 @@ class Events extends CI_Controller{
     }
 
     function createEvent(){
-        #if "eventState is set"
-        $data['title'] = "Create a new event!";
-        $this->load->view("createEvent",$data);
+        #If you're logged in
+        # HEY ASSHOLE: This is where you can look for the "If you're logged in" code
+        if($this->session->userdata('username')){
+            $data['title'] = "Create a new event!";
+            $this->load->view("createEvent",$data);
+        } else {
+            $this->session->set_flashdata('error','You need to be logged in to view this page');
+            $this->session->set_userdata('destination','events/createEvent');
+            redirect("login","refresh");
+        }
     }
 
     function addEvent(){
