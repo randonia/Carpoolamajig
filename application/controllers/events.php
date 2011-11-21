@@ -17,17 +17,27 @@ class Events extends CI_Controller{
 
     function createEvent(){
         #if "eventState is set"
-        if(!$this->session->flashdata('eventState')){
-            $data['title'] = "Create a new event!";
-            $this->load->view("createEvent",$data);
+        $data['title'] = "Create a new event!";
+        $this->load->view("createEvent",$data);
+    }
+
+    function addEvent(){
+        $data['title'] = "Event has been added";
+        $time = $_POST['dateDay'] . " " . $_POST['dateMonth'] . " " . $_POST['dateYear'];
+        $ppeople = -1;
+        if($_POST['vis'] == "public"){
+            $ppeople = "-1" . "|" . $this->session->userdata('username');
         } else {
-            if($this->session->userData('username')){
-                
-            }
-            if($id==0){
-                
-            }
+            $ppeople = $this->session->userdata('username');
         }
+        $query = array( 'date' => strtotime($time),
+            'title' => $_POST['eventTitle'],
+            'startAddr' => $_POST['startAddr'],
+            'endAddr' => $_POST['endAddr'],
+            'info' => $_POST['description'],
+            'permissionedPeople' => $ppeople);
+        echo "QUERY: <br>";
+        print_r($query);
     }
 
     function showEvent($id=0){

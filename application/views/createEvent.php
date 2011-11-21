@@ -93,21 +93,25 @@
 <div id="body">
 <p>
 Fill in the information for your event!
+<<<<<<< Updated upstream
 <form name="eventForm" method="post" onsubmit="validate()">
+=======
+<form method="post" onsubmit="validate()" action="addEvent">
+>>>>>>> Stashed changes
        Title: <input type="text" name="eventTitle" size=50><br>
        Month: <select name="dateMonth">
-       <option value="1">January</option>
-       <option value="2">February</option>
-       <option value="3">March</option>
-       <option value="4">April</option>
-       <option value="5">May</option>
-       <option value="6">June</option>
-       <option value="7">July</option>
-       <option value="8">August</option>
-       <option value="9">September</option>
-       <option value="10">October</option>
-       <option value="11">November</option>
-       <option value="12">December</option>
+       <option value="Jan">January</option>
+       <option value="Feb">February</option>
+       <option value="Mar">March</option>
+       <option value="Apr">April</option>
+       <option value="May">May</option>
+       <option value="Jun">June</option>
+       <option value="Jul">July</option>
+       <option value="Aug">August</option>
+       <option value="Sep">September</option>
+       <option value="Oct">October</option>
+       <option value="Nov">November</option>
+       <option value="Dec">December</option>
        </select>
        Day: <select name="dateDay"><? 
        for($i=1; $i<=31;$i++){
@@ -121,8 +125,13 @@ Fill in the information for your event!
        Start Address: <input type="text" name="startAddr" size=40><br>
        End Address: <input type="text" name="endAddr" size=40><br>
        <!-- THIS NEEDS A BIG TEXTBOX! -->
+<<<<<<< Updated upstream
        Description: <input type="text" name="description" size=50 height=50><br>
        Visibility: <input type="radio" name="vis" value="public">Public</input> <input type="radio" name="vis" value="private">Private</input><br>
+=======
+       Description: <input type="info" size=50 height=50><br>
+       Visibility: <input type="radio" name="vis" value="public" checked>Public</input> <input type="radio" name="vis" value="private">Private</input><br>
+>>>>>>> Stashed changes
        <input type="submit">
 </form>
 

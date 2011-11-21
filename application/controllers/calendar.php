@@ -4,7 +4,8 @@ class Calendar extends CI_Controller{
 	function index()
 	{	
 		$data = array( 
-			5 => array('blah1','blah2')
+			5 => array("http://www.google.com"),
+			6 => array("http://www.google.com")
 		);
 		
 		$this->load->library('calendar');
