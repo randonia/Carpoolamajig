@@ -1,9 +1,7 @@
 <?php
 
 	$config = array(
-				'day_type'=>'long',
-				'show_next_prev'=>TRUE,
-				'next_prev_url'=>'http://people.ucsc.edu/~vewong/index.php/calendar/'
+				'day_type'=>'long'
 			);
 			
 	$config['template'] = '
