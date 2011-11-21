@@ -6,7 +6,7 @@
 </script>
 <?= closeHeader()?>
 <h1><div>
-<div class="left">Events</div><div class="right"><?
+<div class="left">Create an event</div><div class="right"><?
        #check for the login or "you are logged in as" bit
        if($this->session->userdata('username')){
            echo "Logged in as: " . $this->session->userdata('username') . " ";
