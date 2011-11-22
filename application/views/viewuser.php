@@ -2,7 +2,7 @@
 <?= closeHeader()?>
 <h1>
 <div>
-<div class="left"><?= $username ?></div><div class="right"><?
+<div class="left"><?= $username ?>'s</div><div class="right"><?
        if($this->session->userdata('username')){
            echo "Logged in as: " . $this->session->userdata('username') . " ";
            echo "<a class='inHeader' href='" . site_url() . "/logout'>|Logout|</a>";
