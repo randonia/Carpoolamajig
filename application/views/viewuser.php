@@ -14,10 +14,10 @@
     <div id="body">
     <p>
 	 Bio:<br><?= $bio ?><br><br>
-	 Rider Score: <? $riderscore ?><br><br>
+	 Rider Score: <? $riderScore ?><br><br>
 	 Pooler Info: <br>
 	 <ul>
-		 <li>Score: <?= $poolerscore ?><br></li>
+		 <li>Score: <?= $poolerScore ?><br></li>
 		 <li>Car Make: <?= $carMake ?><br></li>
 		 <li>Number of Seats: <?= $carSeats ?><br></li>
 		 <li>Desired Gas Compensation: $<?= $carGasComp ?><br></li>
