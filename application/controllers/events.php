@@ -16,26 +16,48 @@ class Events extends CI_Controller{
     }
 
     function createEvent(){
-        #if "eventState is set"
-        if(!$this->session->flashdata('eventState')){
+        #If you're logged in
+        # HEY ASSHOLE: This is where you can look for the "If you're logged in" code
+        if($this->session->userdata('username')){
             $data['title'] = "Create a new event!";
             $this->load->view("createEvent",$data);
         } else {
-            if($this->session->userData('username')){
-                
-            }
-            if($id==0){
-                
-            }
+            $this->session->set_flashdata('error','You need to be logged in to view this page');
+            $this->session->set_userdata('destination','events/createEvent');
+            redirect("login","refresh");
         }
+    }
+
+    function addEvent(){
+        $data['title'] = "Event has been added";
+        $time = $_POST['dateDay'] . " " . $_POST['dateMonth'] . " " . $_POST['dateYear'];
+        echo $time;
+        $ppeople = -1;
+        if($_POST['vis'] == "public"){
+            $ppeople = "-1" . "|" . $this->session->userdata('username');
+        } else {
+            $ppeople = $this->session->userdata('username');
+        }
+        $query = array( 'date' => strtotime($time),
+            'title' => $_POST['eventTitle'],
+            'startAddr' => $_POST['startAddr'],
+            'endAddr' => $_POST['endAddr'],
+            'info' => $_POST['description'],
+            'permissionedPeople' => $ppeople);
+        $this->db->insert('events',$query);
+        echo "WOOT";
     }
 
     function showEvent($id=0){
         #if no argument is provided, then they should just be forwarded to the main page
-        #because fuck you.
+        # because fuck you.
         if($id==0){
             redirect(site_url(),"refresh");
         }
-        echo $id;
+        $query = $this->db->get_where('events',array('uuid'=>$id));
+        foreach($query->result() as $row){
+            #this is baus
+            print_r($row);
+        }
     }
 }

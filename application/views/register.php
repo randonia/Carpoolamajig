@@ -3,7 +3,7 @@
 		function validate()
 		{
 			// Sets user to the value of the username form value
-			var user = document.forms[registrationForm"]["username"].value;
+			var user = document.forms["registrationForm"]["username"].value;
 			
 			// Ensure the user entered a username
 			if (user == null || user == "")
@@ -13,7 +13,7 @@
 			}
 			
 			// Set passOne to the value of the password1 form value
-			var passOne = documents.forms["registrationForm"]["password1"].value;
+			var passOne = document.forms["registrationForm"]["password1"].value;
 			// Ensure that the password is filled in
 			if (passOne == null || passOne == "")
 			{
@@ -22,7 +22,7 @@
 			}
 			
 			// Set passTwo to the value of the password2 form value
-			var passTwo = documents.forms["registrationForm"]["password2"].value;
+			var passTwo = document.forms["registrationForm"]["password2"].value;
 			// Ensure that the password confirm is filled in
 			if (passTwo == null || passTwo == "")
 			{
@@ -34,11 +34,11 @@
 			if (passOne != passTwo)
 			{
 				alert("Passwords do not match");
-				return false
+				return false;
 			}
 			
 			// Set email to the value of the email form value
-			var email = documents.forms["registrationForm"]["email"].value;
+			var email = document.forms["registrationForm"]["email"].value;
 			// Ensure that the email is filled in
 			if (email == null || email == "")
 			{
@@ -78,7 +78,7 @@
            }
        }
        ?>
- <form name="registrationForm" action="register/commitForm/" method="post">
+ <form name="registrationForm" onsubmit="return validate()" action="register/commitForm/" method="post">
 	Username: <input type="text" name="username"><br>
 	Password: <input type="password" name="password1"><br>
 	Confirm Password: <input type="password" name="password2"><br>

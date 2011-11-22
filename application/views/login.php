@@ -8,6 +8,7 @@
            echo $this->session->flashdata('error');
        }
        ?>
+       Need an  an account? Register <a href="register">here</a>
        <form name="loginForm" action="login/commitForm/" method="post">
        Username: <input type="text" name="username" value="<?
        if($this->session->flashdata('username')){ 
