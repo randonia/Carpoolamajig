@@ -4,9 +4,9 @@ class Calendar extends CI_Controller{
 	function index()
 	{	
 		/* to add more events to the calendar, add the day number as the array index
-		 * and then if there's only one event put a string into that index.
-		 * if there's more than one event in a day, make an array and put
-		 * all the event names in that array.
+		 * and then if there's only one event put an array as the value of that day.
+		 * in the array, make the name of the event the key and then the url wanted
+		 * as the value (i.e. key=>value)
          */   		 
 		
 		$data = array( 
