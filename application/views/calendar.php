@@ -47,6 +47,10 @@
 				background: #E9EFF7;
 				height: 100%;
 			}
+			
+			.events {
+				align: center;
+			}
 		</style>
 	</head>
 	<body>

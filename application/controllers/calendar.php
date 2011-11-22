@@ -10,13 +10,8 @@ class Calendar extends CI_Controller{
          */   		 
 		
 		$data = array( 
-<<<<<<< HEAD
-			5 => array('blah1','blah2'),
-			20 => 'one of these things is not like the other'
-=======
-			5 => array("http://www.google.com"),
-			6 => array("http://www.google.com")
->>>>>>> b89b94ab04dca8e235b6c6894e95be84e2b81137
+			5 => array('poo'=>'blah1','blah2'),
+			20 => array('one of these things is not like the other')
 		);
 		
 		$this->load->library('calendar');

@@ -225,14 +225,7 @@ class CI_Calendar {
 							$several_events = '';
 							foreach ($data[$day] as $key => $value)
 							{
-								if ($key == 0)
-								{
-									$several_events .= '<a href="'.$value.'">'.$value.'</a>';
-								}
-								else
-								{
-									$several_events .= '<br /><a href="'.$value.'">'.$value.'</a>';
-								}
+								$several_events .= '<a href="'.$value.'">'.$key.'</a><br />';
 							}
 							//echo $day.$several_events;
 							$out .= str_replace('{day}', $day, str_replace('<a href="{content}">', $several_events, $temp));
