@@ -33,7 +33,47 @@ h1 {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b1d372', endColorstr='#b1d372',GradientType=1 ); /* IE6-9 */
 }
 
-/***** Classes *****/
+/* For Form Format */
+label {
+	float: left;
+	width: 10em;
+	margin-right: 1em;
+}
+
+fieldset li {
+	float: left;
+	clear: left;
+	width: 100%;
+	padding-bottom: 1em;
+}
+
+fieldset ol {
+	list-style-type: none;
+	padding-top: 0.25em;
+}
+
+fieldset {
+	float: left;
+	clear: left;
+	width: 100%;
+	margin: 0 0 1.5em 0;
+	padding: 0;
+	border: 1px solid #38A513;
+}
+
+fieldset.submit {
+	float: none;
+	width: auto;
+	border: 0 none #FFF;
+	padding-left: 12em;
+}
+
+legend {
+	margin-left: 1em;
+	padding: 2px;
+	font-weight: bold;
+}
+
 /* For Header Format */
 .left {
 	font-size: 32px;
@@ -79,6 +119,17 @@ p.nav {
 	border-left: 1px solid #38A513;
 	line-height: 32px;
 }
+
+/* Miscellaneous */
+p.min {
+	min-height: 500px;
+}
+
+#wrap {
+	margin: 0 auto;
+	width: 400px;
+}
+
 
 #body{
 	margin: 0 15px 0 15px;

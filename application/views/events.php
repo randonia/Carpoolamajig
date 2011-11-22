@@ -14,10 +14,21 @@
 </h1>
 
 <div id="body">
+	<p class ="nav">
+		<a class="inNav" href="<?=site_url()?>/events">Events</a><br>
+		<a class="inNav" href="<?=site_url()?>/routes">Routes</a><br>
+		<a class="inNav" href="<?=site_url()?>/users">Users</a><br>
+		<a class="inNav" href="<?=site_url()?>/search">Search</a><br>
+	</p>
 <p>
 THIS IS WHERE THE CALENDAR OF EVENTS GOES!<br>
 <a href="events/createEvent">Create an event hoe</a>
 </p>
 </div>
-
+	   <p class="min"> </p>
+	   <p class="footer">
+         <? if(isset($dateMod)){echo "This page was last updated on $dateMod";}?> 
+We are using <a href="http://codeigniter.com/" class="inText">CodeIgniter</a> for this project. w00tcakes.</p>
+       <? 
+       ?>
 <?echo generateFooter()?>

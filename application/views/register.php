@@ -61,9 +61,18 @@
 		}
 </script>
 <?= closeHeader()?>
-<h1>New User Registration Form</h1>
+<h1>
+<div class="left">Carpoolamajig : Register</div><div class="right"><a class="inHeader" href="<?=site_url()?>">Home</a></div>
+</h1>
 <div id="body">
-   <p><? 
+	<p class ="nav">
+		<a class="inNav" href="<?=site_url()?>/events">Events</a><br>
+		<a class="inNav" href="<?=site_url()?>/routes">Routes</a><br>
+		<a class="inNav" href="<?=site_url()?>/users">Users</a><br>
+		<a class="inNav" href="<?=site_url()?>/search">Search</a><br>
+	</p>
+	<div id="wrap">
+	<? 
        if(isset($errorcode)){ 
         switch($errorcode){
          case 'improperInput':
@@ -79,13 +88,38 @@
        }
        ?>
  <form name="registrationForm" onsubmit="return validate()" action="register/commitForm/" method="post">
-	Username: <input type="text" name="username"><br>
-	Password: <input type="password" name="password1"><br>
-	Confirm Password: <input type="password" name="password2"><br>
-	E-mail: <input type="text" name="email"><br>
+ <fieldset>
+ <legend>Make An Account!</legend>
+ <ol>
+ <li>
+ <label for="username">Username:</label>
+ <input type="text" name="username">
+ </li>
+ <li>
+ <label for="password1">Password:</label>
+ <input type="password" name="password1">
+ </li>
+ <li>
+ <label for="password2">Confirm Password:</label>
+ <input type="password" name="password2">
+ </li>
+ <li>
+ <label for="email">E-mail:</label>
+ <input type="text" name="email">
+ </li>
+
+
 	<input type="submit" value="Register!">
-    <input type="reset"><br>
-   </form>
-   </p>
+    <input type="reset">
+	</fieldset >
+	</form>
+</div>
+
+	<p class="min"> </p>
+		<p class="footer">
+			<? if(isset($dateMod)){echo "This page was last updated on $dateMod";}?> 
+	We are using <a href="http://codeigniter.com/" class="inText">CodeIgniter</a> for this project. w00tcakes.</p>
+		   <? 
+		   ?>
 </div>
 <?= generateFooter()?>
