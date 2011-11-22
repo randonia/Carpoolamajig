@@ -14,7 +14,7 @@
     <div id="body">
     <p>
 	 Bio:<br><?= $bio ?><br><br>
-	 Rider Score: <? $riderScore ?><br><br>
+	 Rider Score: <?= $riderScore ?><br><br>
 	 Pooler Info: <br>
 	 <ul>
 		 <li>Score: <?= $poolerScore ?><br></li>
