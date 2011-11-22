@@ -15,7 +15,8 @@
 
 <div id="body">
 <p>
-STUFF
+THIS IS WHERE THE CALENDAR OF EVENTS GOES!<br>
+<a href="events/createEvent">Create an event hoe</a>
 </p>
 </div>
 

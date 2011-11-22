@@ -31,7 +31,6 @@ class Events extends CI_Controller{
     function addEvent(){
         $data['title'] = "Event has been added";
         $time = $_POST['dateDay'] . " " . $_POST['dateMonth'] . " " . $_POST['dateYear'];
-        echo $time;
         $ppeople = -1;
         if($_POST['vis'] == "public"){
             $ppeople = "-1" . "|" . $this->session->userdata('username');
@@ -44,8 +43,21 @@ class Events extends CI_Controller{
             'endAddr' => $_POST['endAddr'],
             'info' => $_POST['description'],
             'permissionedPeople' => $ppeople);
+        # insert the above ^ from the form into the events DB
         $this->db->insert('events',$query);
-        echo "WOOT";
+        # now we grab the max uuid to redirect the user to their just made
+        # event page
+        $this->db->select_max('uuid');
+        #fuck
+        $query = $this->db->get('events');
+        #this
+        $uuid = "";
+        #silly
+        foreach($query->result() as $row){
+            #sauce
+            $uuid = $row->uuid;
+        }
+        $this->showEvent($uuid);
     }
 
     function showEvent($id=0){
