@@ -19,6 +19,7 @@
        <li><a class="inNav" href="index.php/login">Login Page</a></li>
        <li><a class="inNav" href="index.php/events">Events Page</a></li>
        <li><a class="inNav" href="index.php/events/createEvent">Create an Event page</a></li>
+	   <li><a class="inNav" href="index.php/calendar/">Calendar!</a></li>
        </ul>
     </p>
         <a href="http://www.youtube.com/watch?v=izGwDsrQ1eQ" class="inNav">In the mean time, enjoy this.</a>
