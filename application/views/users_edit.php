@@ -12,9 +12,16 @@
 ?></div>
 </div></h1>
     <div id="body">
+	 <p class ="nav">
+		<a class="inNav" href="<?=site_url()?>/events">Events</a><br>
+		<a class="inNav" href="<?=site_url()?>/routes">Routes</a><br>
+		<a class="inNav" href="<?=site_url()?>/users">Users</a><br>
+		<a class="inNav" href="<?=site_url()?>/search">Search</a><br>
+	</p>
+	<div id="wrap">
        <form name="editProfile" action="users/commitUserData/" method="post">
 		 <fieldset>
-		 <legend>Editr your profile!</legend>
+		 <legend>Edit your profile!</legend>
 		 <ul>
 			<li>
 				<label>Username:</label>
@@ -61,4 +68,5 @@
 		 </fieldset>
 		 </form>
     </div>
+	 </div>
 <?echo generateFooter()?>
