@@ -13,13 +13,14 @@
 </div></h1>
     <div id="body">
        <form name="editProfile" action="users/commitUserData/" method="post">
-		 <ol>
+		 <ul>
 			<li>
-				<label>Username: <?= $username ?> </label>
+				<label>Username:</label>
+				<input disabled value="<?=$username?>">
 			</li>
 			<li>
 				<label>E-mail:</label>
-				<input type="text" name="email" value= <?="$email"?>>
+				<input type="text" name="email" value= "<?=$email?>">
 			</li>
 			<li>
 				<label>Bio:</label>
@@ -53,7 +54,7 @@
 				<label>Confirm Password</label>
 				<input type="text" name="confirmPassword">
 			</li>
-		 </ol>
+		 </ul>
 		 <input type="submit" value="Save Changes">
 		 </form>
     </div>
