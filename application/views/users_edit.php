@@ -13,6 +13,8 @@
 </div></h1>
     <div id="body">
        <form name="editProfile" action="users/commitUserData/" method="post">
+		 <fieldset>
+		 <legend>Editr your profile!</legend>
 		 <ul>
 			<li>
 				<label>Username:</label>
@@ -56,6 +58,7 @@
 			</li>
 		 </ul>
 		 <input type="submit" value="Save Changes">
+		 </fieldset>
 		 </form>
     </div>
 <?echo generateFooter()?>
