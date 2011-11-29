@@ -23,23 +23,23 @@
 			</li>
 			<li>
 				<label>Bio:</label>
-				<input type="text" name="bio" value= <?="$bio"?>>
+				<input type="text" name="bio" value="<?=$bio?>">
 			</li>
 			<li>
 				<label>Car Make</label>
-				<input type="text" name="carMake" value=<?="$carMake"?>>
+				<input type="text" name="carMake" value="<?=$carMake?>">
 			</li>
 			<li>
 				<label>Number of Seats</label>
-				<input type="text" name="carSeats" value=<?="$carSeats"?>>
+				<input type="text" name="carSeats" value="<?=$carSeats?>">
 			</li>
 			<li>
 				<label>Desired Gas Compensation</label>
-				<input type="text" name="carGasComp" value=<?="$carGasComp"?>>
+				<input type="text" name="carGasComp" value="<?=$carGasComp?>">
 			</li>
 			<li>
 				<label>Car Amenities</label>
-				<input type="text" name="carAmenities" value=<?="$carAmenities"?>>
+				<input type="text" name="carAmenities" value="<?=$carAmenities?>">
 			</li>
 			<li>
 				<label>Password</label>
