@@ -1,0 +1,31 @@
+Line 72, Column 272: element "CENTER" undefined
+…an class="day_listing">5</span><center><a href="blah1">poo</a><br /><a href="b…
+
+You have used the element named above in your document, but the document type you are using does not define an element of that name. This error is often caused by:
+
+incorrect use of the "Strict" document type with a document that uses frames (e.g. you must use the "Frameset" document type to get the "<frameset>" element),
+by using vendor proprietary extensions such as "<spacer>" or "<marquee>" (this is usually fixed by using CSS to achieve the desired effect instead).
+by using upper-case tags in XHTML (in XHTML attributes and elements must be all lower-case).
+
+Line 72, Column 328: end tag for element "A" which is not open
+…><center><a href="blah1">poo</a><br><a href="blah2">0</a><br></a></center></td>
+?
+The Validator found an end tag for the above element, but that element is not currently open. This is often caused by a leftover end tag from an element that was removed during editing, or by an implicitly closed element (if you have an error related to an element being used where it is not allowed, this is almost certainly the case). In the latter case this error will disappear as soon as you fix the original problem.
+
+If this error occurred in a script section of your document, you should probably read this FAQ entry.
+
+Line 84, Column 47: element "CENTER" undefined
+…n class="day_listing">20</span><center><a href="one of these things is not lik…
+?
+You have used the element named above in your document, but the document type you are using does not define an element of that name. This error is often caused by:
+
+incorrect use of the "Strict" document type with a document that uses frames (e.g. you must use the "Frameset" document type to get the "<frameset>" element),
+by using vendor proprietary extensions such as "<spacer>" or "<marquee>" (this is usually fixed by using CSS to achieve the desired effect instead).
+by using upper-case tags in XHTML (in XHTML attributes and elements must be all lower-case).
+
+Line 84, Column 112: end tag for element "A" which is not open
+…gs is not like the other">0</a><br></a></center></td><td><span class="day_list…
+?
+The Validator found an end tag for the above element, but that element is not currently open. This is often caused by a leftover end tag from an element that was removed during editing, or by an implicitly closed element (if you have an error related to an element being used where it is not allowed, this is almost certainly the case). In the latter case this error will disappear as soon as you fix the original problem.
+
+If this error occurred in a script section of your document, you should probably read this FAQ entry.

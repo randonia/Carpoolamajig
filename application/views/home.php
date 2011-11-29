@@ -1,7 +1,7 @@
 <?= generateHeader($title,base_url())?>
 <?= closeHeader()?>
 <h1>
-<div>
+<div> #div missing object/map/button start-tag
 <div class="left">Carpoolamajig</div><div class="right"><?
        if($this->session->userdata('username')){
            echo "<p class='inText'>Logged in as: " . $this->session->userdata('username') . " ";
