@@ -18,6 +18,10 @@
 				<label>Username: <?= $username ?> </label>
 			</li>
 			<li>
+				<label>E-mail:</label>
+				<input type="text" name="email" value= <?="$email"?>>
+			</li>
+			<li>
 				<label>Bio:</label>
 				<input type="text" name="bio" value= <?="$bio"?>>
 			</li>
@@ -42,12 +46,12 @@
 				<input type="text" name="password">
 			</li>
 			<li>
-				<label>Confirm Password</label>
-				<input type="text" name="confirmPassword">
-			</li>
-			<li>
 				<label>New Password</label>
 				<input type="text" name="newPassword">
+			</li>
+			<li>
+				<label>Confirm Password</label>
+				<input type="text" name="confirmPassword">
 			</li>
 		 </ol>
 		 <input type="submit" value="Save Changes">
