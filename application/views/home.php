@@ -29,8 +29,5 @@
     <p class="footer">
          <? if(isset($dateMod)){echo "This page was last updated on $dateMod";}?> 
 We are using <a href="http://codeigniter.com/" class="inText">CodeIgniter</a> for this project. w00tcakes.</p>
-       <? 
-       ?>
-	   
     </div>
 <?echo generateFooter()?>
