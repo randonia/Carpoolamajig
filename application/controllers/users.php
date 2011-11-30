@@ -145,7 +145,7 @@ class Users extends CI_Controller{
         } else {
             echo "FFFFFFFFUUUUUUUUUUUUUUUUU";
         }
-        echo "Done updating Go <a href='" . site_url() . "/users'>here</a>";
+        redirect(site_url()."/users/showUser/$username","redirect");
     }
     
 }

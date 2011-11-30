@@ -12,6 +12,6 @@
 ?></div>
 </div></h1>
     <div id="body">
-       
+       <a href="<?= 'users/editUser/' . $this->session->userdata('username')?>">Edit User</a>
     </div>
 <?echo generateFooter()?>

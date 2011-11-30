@@ -19,7 +19,7 @@
 		<a class="inNav" href="<?=site_url()?>/search">Search</a><br>
 	</p>
 	<div id="wrap">
-       <form name="editProfile" action="users/commitUserData/" method="post">
+       <form name="editProfile" action="../commitUserData/" method="post">
 		 <fieldset>
 		 <legend>Edit your profile!</legend>
 		 <ul>

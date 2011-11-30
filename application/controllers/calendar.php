@@ -8,11 +8,48 @@ class Calendar extends CI_Controller{
 		 * in the array, make the name of the event the key and then the url wanted
 		 * as the value (i.e. key=>value)
          */   		 
-		
-		$data = array( 
-			5 => array('poo'=>'blah1','blah2'),
-			20 => array('one of these things is not like the other')
-		);
+		$this->db->select("uuid,title,date,permissionedPeople");
+        $query = $this->db->get("events");
+
+        if($this->session->userdata('username')){
+            $username = $this->session->userdata('username');
+        }
+        
+        #We've got out data array hrrr
+        $data = array();
+        #go through each result and populate this data shits!
+        foreach($query->result() as $row){
+            echo "Starting on " . print_r($row);
+            #use this to see if this current user has permissions to view this event
+            $permFlag = false;
+            $tPerms = explode("|",$row->permissionedPeople);
+            if($tPerms[0] == -1){
+                echo "YO BITCH";
+                $permFlag = true;
+            } else {
+                unset($tPerms[0]);
+                #See if this username is in the permissioned people list
+                foreach($tPerms as $dick){
+                    if($dick == $username){
+                        $permFlag = true;
+                        echo "WOOT $dick";
+                        break;
+                    }
+                }
+            }
+            
+            if($permFlag){
+                #so if you have permission you ass
+                #This shit's complex
+                $data[date("m",$row->date)][$row->title] = site_url() . "/events/showEvent/$row->uuid";
+            }
+            echo "<br>";
+        }
+
+#		$data = array( 
+#			5 => array('poo'=>'blah1','blah2'),
+#			20 => array('one of these things is not like the other')
+#		);
 		
 		$this->load->library('calendar');
 		
