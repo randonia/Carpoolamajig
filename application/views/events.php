@@ -22,7 +22,7 @@
 	</p>
 <p>
 THIS IS WHERE THE CALENDAR OF EVENTS GOES!<br>
-<a href="events/createEvent">Create an event hoe</a>
+<a href="createEvent">Create an event hoe</a>
 </p>
 </div>
 	   <p class="min"> </p>
