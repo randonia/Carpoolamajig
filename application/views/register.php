@@ -62,6 +62,7 @@
 </script>
 <?= closeHeader()?>
 <h1>
+<!-- 2 errors this line, both with div tags missing object/map/button start-tag -->
 <div class="left">Carpoolamajig : Register</div><div class="right"><a class="inHeader" href="<?=site_url()?>">Home</a></div>
 </h1>
 <div id="body">
@@ -92,25 +93,32 @@
  <legend>Make An Account!</legend>
  <ol>
  <li>
+ <!-- reference to non-existent id "username", poss missing id attr -->
  <label for="username">Username:</label>
  <input type="text" name="username">
  </li>
  <li>
+ <!-- reference to non-existent id "password1", poss missing id attr -->
  <label for="password1">Password:</label>
  <input type="password" name="password1">
  </li>
  <li>
+ <!-- ref to non-existent id "password2", poss missing id attr -->
  <label for="password2">Confirm Password:</label>
  <input type="password" name="password2">
  </li>
  <li>
+ <!-- ref to non-existent id "email", poss missing id attr -->
  <label for="email">E-mail:</label>
  <input type="text" name="email">
  </li>
 
-
+<!-- input needs li start tag in 4.01 strict -->
+	<li>
 	<input type="submit" value="Register!">
     <input type="reset">
+	</li>
+	</ol>
 	</fieldset >
 	</form>
 </div>

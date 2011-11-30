@@ -11,7 +11,7 @@ function generateHeader($title,$baseURL){
     $result .= "<html>\n";
     $result .= "<head>\n";
     $result .= '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">' . "\n";
-    $result .= '<link type="text/css" href="' . $baseURL . '/css/styles.css" rel="stylesheet" /> ' . "\n";
+    $result .= '<link type="text/css" href="' . $baseURL . '/css/styles.css" rel="stylesheet" > ' . "\n";
 #    $result .= '<style type="text/css"><!-- ' . "\n" . getStyleSheet() . '--> </style>' . "\n";
     $result .= "<title>$title</title>\n";
     return $result;

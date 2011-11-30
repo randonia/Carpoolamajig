@@ -1,0 +1,53 @@
+Line 73, Column 18: document type does not allow element "DIV" here; missing one of "OBJECT", "MAP", "BUTTON" start-tag
+<div class="left">Carpoolamajig : Register</div><div class="right"><a class="in…
+?
+The mentioned element is not allowed to appear in the context in which you've placed it; the other mentioned elements are the only ones that are both allowed there and can contain the element mentioned. This might mean that you need a containing element, or possibly that you've forgotten to close a previous element.
+
+One possible cause for this message is that you have attempted to put a block-level element (such as "<p>" or "<table>") inside an inline element (such as "<a>", "<span>", or "<font>").
+
+Line 73, Column 67: document type does not allow element "DIV" here; missing one of "OBJECT", "MAP", "BUTTON" start-tag
+…jig : Register</div><div class="right"><a class="inHeader" href="http://people…
+?
+The mentioned element is not allowed to appear in the context in which you've placed it; the other mentioned elements are the only ones that are both allowed there and can contain the element mentioned. This might mean that you need a containing element, or possibly that you've forgotten to close a previous element.
+
+One possible cause for this message is that you have attempted to put a block-level element (such as "<p>" or "<table>") inside an inline element (such as "<a>", "<span>", or "<font>").
+
+ Line 88, Column 14: reference to non-existent ID "USERNAME"
+ <label for="username">Username:</label>
+?
+This error can be triggered by:
+
+A non-existent input, select or textarea element
+A missing id attribute
+A typographical error in the id attribute
+Try to check the spelling and case of the id you are referring to.
+
+ Line 92, Column 14: reference to non-existent ID "PASSWORD1"
+ <label for="password1">Password:</label>
+?
+This error can be triggered by:
+
+A non-existent input, select or textarea element
+A missing id attribute
+A typographical error in the id attribute
+Try to check the spelling and case of the id you are referring to.
+
+ Line 96, Column 14: reference to non-existent ID "PASSWORD2"
+ <label for="password2">Confirm Password:</label>
+?
+This error can be triggered by:
+
+A non-existent input, select or textarea element
+A missing id attribute
+A typographical error in the id attribute
+Try to check the spelling and case of the id you are referring to.
+
+ Line 100, Column 14: reference to non-existent ID "EMAIL"
+ <label for="email">E-mail:</label>
+?
+This error can be triggered by:
+
+A non-existent input, select or textarea element
+A missing id attribute
+A typographical error in the id attribute
+Try to check the spelling and case of the id you are referring to.

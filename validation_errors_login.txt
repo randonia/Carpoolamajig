@@ -1,0 +1,31 @@
+LOGIN.PHP VALIDATION ERRORS
+
+Line 12, Column 5: document type does not allow element "DIV" here; missing one of "OBJECT", "MAP", "BUTTON" start-tag
+<div>
+
+The mentioned element is not allowed to appear in the context in which you've placed it; the other mentioned elements are the only ones that are both allowed there and can contain the element mentioned. This might mean that you need a containing element, or possibly that you've forgotten to close a previous element.
+
+One possible cause for this message is that you have attempted to put a block-level element (such as "<p>" or "<table>") inside an inline element (such as "<a>", "<span>", or "<font>").
+
+Line 39, Column 25: document type does not allow element "INPUT" here; assuming missing "LI" start-tag
+    <input type="submit">
+	
+Line 32, Column 14: reference to non-existent ID "USERNAME"
+	<label for="username">Username:</label>
+
+This error can be triggered by:
+
+A non-existent input, select or textarea element
+A missing id attribute
+A typographical error in the id attribute
+Try to check the spelling and case of the id you are referring to.
+
+Line 36, Column 14: reference to non-existent ID "PASSWORD"
+	<label for="password">Password:</label>
+
+This error can be triggered by:
+
+A non-existent input, select or textarea element
+A missing id attribute
+A typographical error in the id attribute
+Try to check the spelling and case of the id you are referring to.
