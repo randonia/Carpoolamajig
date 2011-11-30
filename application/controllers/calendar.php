@@ -24,7 +24,6 @@ class Calendar extends CI_Controller{
             $permFlag = false;
             $tPerms = explode("|",$row->permissionedPeople);
             if($tPerms[0] == -1){
-                echo "YO BITCH";
                 $permFlag = true;
             } else {
                 unset($tPerms[0]);
@@ -41,7 +40,7 @@ class Calendar extends CI_Controller{
             if($permFlag){
                 #so if you have permission you ass
                 #This shit's complex
-                $data[date("m",$row->date)][$row->title] = site_url() . "/events/showEvent/$row->uuid";
+                $data[date("d",$row->date)][$row->title] = site_url() . "/events/showEvent/$row->uuid";
             }
             echo "<br>";
         }

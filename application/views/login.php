@@ -1,16 +1,16 @@
 <?= generateHeader($title,base_url())?>
 <?= closeHeader()?>
 <h1>
-<div> <!-- div tag needs object/map/button start-tag -->
-<div class="left">Carpoolamajig : Login</div><div class="right"><a class="inHeader" href="<?=site_url()?>">Home</a></div>
-</div>
+<div class="left">Carpoolamajig : Login</div><div class="right"></div>
 </h1>
 <div id="body">
 	 <p class ="nav">
-		<a class="inNav" href="<?=site_url()?>/events">Events</a><br>
-		<a class="inNav" href="<?=site_url()?>/routes">Routes</a><br>
-		<a class="inNav" href="<?=site_url()?>/users">Users</a><br>
-		<a class="inNav" href="<?=site_url()?>/search">Search</a><br>
+		<a class="inNav" href="<?=site_url()?>">Home</a><br>
+		<a class="inNav" href="index.php/events">Events</a><br>
+		<a class="inNav" href="index.php/calendar">Calendar</a><br>
+		<a class="inNav" href="index.php/routes">Routes</a><br>
+		<a class="inNav" href="index.php/users">Users</a><br>
+		<a class="inNav" href="index.php/search">Search</a><br>
 	</p>
 	<div id="wrap">
 	
