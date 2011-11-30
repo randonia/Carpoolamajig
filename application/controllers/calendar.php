@@ -1,7 +1,7 @@
 <?
 
 class Calendar extends CI_Controller{
-	function index()
+	function index($year='',$month='')
 	{	
 		/* to add more events to the calendar, add the day number as the array index
 		 * and then if there's only one event put an array as the value of that day.
@@ -51,9 +51,16 @@ class Calendar extends CI_Controller{
 #		);
 		
 		$this->load->library('calendar');
-		
-		$vars['calendar'] = $this->calendar->generate('', '', $data);
-		
+        $vars['calendar'] = $this->calendar->generate($year,$month, $data);
+        $vars['year'] = $year;
+        $vars['month'] = $month;
+        #
+        # FIXME: Toss some logic in here so it doesn't do that whole "negative a billion" thing
+        #
+        $vars['prevYear'] = intval($year) - 1;
+        $vars['prevMonth'] = intval($month) - 1;
+        $vars['nextYear'] = intval($year) + 1;
+        $vars['nextMonth'] = intval($month) + 1;
 		$this->load->view('calendar', $vars);
 	}
 }

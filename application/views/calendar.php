@@ -57,6 +57,8 @@
 	</head>
 	<body>
 
+<a href=<?="$prevMonth"?>>Previous Month</a>
+<a href=<?="$nextMonth"?>>Next Month</a>
 		<?php echo $calendar;?>
 
 	</body>

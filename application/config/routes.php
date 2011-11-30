@@ -40,6 +40,7 @@
 
 $route['default_controller'] = "indexy";
 $route['404_override'] = '';
+$route['calendar/(.*)'] = "calendar/index/$1/$2";
 
 
 /* End of file routes.php */
