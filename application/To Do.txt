@@ -1,0 +1,20 @@
+NOT IN ORDER OF IMPORTANCE
+
+1. Allow users to sign up for events
+
+2. Make sure users cannot create events on days that have already passed
+
+3. Invite users to events
+
+4. Format needs
+
+	A. Calendar
+	B. Events page
+	C. User page
+	D. Edit user
+	
+5. User password recovery
+
+6. Ensure we have all form validation and it all works
+
+7. Cannot create multiple usernames with same email address
