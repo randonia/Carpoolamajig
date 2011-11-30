@@ -67,6 +67,11 @@ class Register extends CI_Controller{
           $this->session->set_userdata('username',$_POST['username']);
           #Push that into the array to pass into the view
           $data['title'] = "Welcome " . $_POST['username'];
+
+          #Try to send an email
+          #Moo
+          
+
           #Load the view "registered"
           $this->load->view("registered", $data);
       }
