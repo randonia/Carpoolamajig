@@ -69,7 +69,14 @@ class Events extends CI_Controller{
         $query = $this->db->get_where('events',array('uuid'=>$id));
         foreach($query->result() as $row){
             #this is baus
-            print_r($row);
+            #print_r($row);
+				$eventData = $row;
+				$eventData['date'] = $row->date;
+				$eventData['title'] = $row->title;
+				$eventData['startAddr'] = $row->startAddr;
+				$eventData['endAddr'] = $row->endAddr;
+				$eventData['info'] = $row->info;
+				$eventData['permissionedPeople'] = $row->permissionedPeople;
         }
     }
 }
