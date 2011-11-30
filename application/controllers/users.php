@@ -102,8 +102,19 @@ class Users extends CI_Controller{
 
     #Code to actually toss shit into the database.
     function commitUserData(){
-        if($_POST && $this->session->flashdata('status')=="editUserData"){
-            $this->db->where('username',$username);
+        if($_POST && $this->session->flashdata('status')=="editUserData" && $this->session->userdata('username')){
+            #TODO: Toss a fat error if they aren't logged in
+            #Grab the ID for future use:
+            $username = $this->session->userdata('username');
+            #from the db 'users' where username==$username
+            $query = $this->db->get_where('users',array('username' => $username));
+            #init $id because I don't know if the scope will pwn $id
+            $id='0';
+            #grab the id and send it to $id
+            foreach($query->result() as $row){
+                $id=$row->id;
+            }
+
             #check up on the email
             $derpta = array(
                 'email' => $_POST['email']);
@@ -111,10 +122,30 @@ class Users extends CI_Controller{
             if($_POST['newPassword'] != ''){
                 $derpta['password'] = $_POST['newPassword'];
             }
-            #
-        } else {
+            #Update the email given
+            $derpta['email'] = $_POST['email'];
+            #poke around the users database now
+            echo $username;
+            $this->db->where('username',$username);
+            $this->db->update('users',$derpta);
+            echo($this->session->userdata('username'));
             
+            #now update the regular bio
+            $this->db->where('id',$id);
+            $this->db->update('bios',array('bio'=>$_POST['bio']));
+            
+            #now update the poolerBios
+            $this->db->where('id',$id);
+            $derpta = array('carMake'=>$_POST['carMake'],
+                'carSeats'=>$_POST['carSeats'],
+                'carGasComp'=>$_POST['carGasComp'],
+                'carAmenities'=>$_POST['carAmenities']);
+            $this->db->update('poolerBios',$derpta);
+
+        } else {
+            echo "FFFFFFFFUUUUUUUUUUUUUUUUU";
         }
+        echo "Done updating Go <a href='" . site_url() . "/users'>here</a>";
     }
     
 }
