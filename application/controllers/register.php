@@ -62,6 +62,22 @@ class Register extends CI_Controller{
           #*****
           #FIXME: We can't do plaintext passwords. Fix this later
           #*****
+          $id=0;
+          $query = $this->db->get_where('users',array('username'=>$_POST['username']));
+          foreach($query->result() as $row){
+              $id = $row->id;
+          }
+
+          #now create an empty user bio:
+          $insertionData = array('id'=>$id,'bio'=>"");
+          $this->db->insert('bios',$insertionData);
+
+          #now create an empty poolerBio
+          $insertionData = array('id'=>$id);
+          $this->db->insert('poolerBios',$insertionData);
+
+          #now create an empty riderBio
+          $this->db->insert('riderBios',$insertionData);
 
           #Set the user data field "user" to the username!
           $this->session->set_userdata('username',$_POST['username']);
