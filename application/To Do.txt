@@ -13,10 +13,14 @@ NOT IN ORDER OF IMPORTANCE
 	C. User page
 	D. Edit user
 	
-5. User password recovery and comfirmation
+//5. User password recovery and comfirmation
 
 6. Ensure we have all form validation and it all works
 
 7. Cannot create multiple usernames with same email address
 
 8. Add some logic for Next and Previous month in the calendar
+
+9. Add side bar to showUser
+
+10. Rider and pooler score
