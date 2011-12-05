@@ -51,12 +51,12 @@
 				Information: <?=$info?>
 			</li>
 			<li>
-			<form name="inviteForm" onsubmit="return validate()" action="" method="post">
+			<form name="inviteForm" onsubmit="return validate()" action=<?= '"' . site_url() . '/events/addUserToEvent/' . $id . '"'?> method="post">
 			<?
 				#Check if the person viewing this page created this event
 				$arrangedPeople = explode("|",$permissionedPeople);
 				#If they did, allow them to invite friends
-                if ($arrangedPeople[1] == $this->session->userdata('username')){
+				if ($arrangedPeople[1] == $username){
 					echo "Invite a friend (Enter their username):";
 					echo '<input type="text" name="invite">';
 					echo '<input type="submit" value="Invite"><br>';
