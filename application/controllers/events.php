@@ -58,7 +58,7 @@ class Events extends CI_Controller{
             #sauce
             $uuid = $row->uuid;
         }
-#        redirect(site_url() . "/events/showEvent/" . $uuid,"redirect");
+        redirect(site_url() . "/events/showEvent/" . $uuid,"redirect");
 #        $this->showEvent($uuid);
     }
 
