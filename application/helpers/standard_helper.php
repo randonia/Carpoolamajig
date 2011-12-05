@@ -49,16 +49,19 @@ function printLoginCorner(){
     #FIX THIS SHIT
 }
 
+#do some magic
 function makeGoogleImage($start,$end){
     $result = '<a href="http://maps.google.com/maps?saddr='.googleifyText($start).'&daddr='.googleifyText($end).'&hl=en&t=h&z=14">' . getGoogleImageCode($start) . "</a>";
     return $result;
 }
 
+#more magic
 function getGoogleImageCode($addr){
     $result = '<img src="http://maps.googleapis.com/maps/api/staticmap?center=' . googleifyText($addr) . '&zoom=14&size=400x400&sensor=false" height="400" width="400"/>';
     return $result;
 }
 
+#even more magic....
 function googleifyText($text){
     return str_replace(" ","+",$text);
 }

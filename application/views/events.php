@@ -19,7 +19,7 @@
 
 	<p>
 		THIS IS WHERE THE CALENDAR OF EVENTS GOES!<br>
-		<a href="events/createEvent">Create an event hoe</a>
+		<a href="<?=site_url()."/events/createEvent"?>">Create an event hoe</a>
 	</p>
 	
 </div>
