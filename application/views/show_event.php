@@ -73,6 +73,12 @@
 						echo 'You are attending this event!';
 					}
 					else{
+						if ($this->session->flashdata('errNo') == 1){
+							echo $this->session->flashdata('errData');
+						}
+						if ($this->session->flashdata('errNo') == 2){
+							echo $this->session->flashdata('errData');
+						}
 						echo '<input type="submit" value="Request invitation to Event"><br>';
 					}
 				}
