@@ -19,15 +19,7 @@ if($this->session->userdata('destination')){
 }
 ?>
 <div id="body">
-	<p class ="nav">
-		<a class="inNav" href="<?=site_url()?>">Home</a><br>
-		<a class="inNav" href="index.php/events">Events</a><br>
-		<a class="inNav" href="index.php/calendar">Calendar</a><br>
-		<a class="inNav" href="index.php/routes">Routes</a><br>
-		<a class="inNav" href="index.php/users">Users</a><br>
-		<a class="inNav" href="index.php/search">Search</a><br>
-	</p>
-	
+    <?=generateNavBar()?>
 	
     <p>Thank you for logging in <?= $username?>. You can go to your destination <a href="<?=$dest?>" class="inText">here!</a></p>
 	

@@ -120,15 +120,14 @@ class Users extends CI_Controller{
                 'email' => $_POST['email']);
             #update the password as well
             if($_POST['newPassword'] != ''){
-                $derpta['password'] = $_POST['newPassword'];
+                $derpta['password'] = sha1($_POST['newPassword']);
             }
             #Update the email given
             $derpta['email'] = $_POST['email'];
             #poke around the users database now
-            echo $username;
             $this->db->where('username',$username);
             $this->db->update('users',$derpta);
-            echo($this->session->userdata('username'));
+#            echo($this->session->userdata('username'));
             
             #now update the regular bio
             $this->db->where('id',$id);

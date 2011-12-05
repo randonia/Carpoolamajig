@@ -1,17 +1,10 @@
 <?= generateHeader($title,base_url())?>
 <?= closeHeader()?>
 <h1>
-<div class="left">Carpoolamajig : Password Reset</div><div class="right"></div>
+<div class="left">Carpoolamajig : Login</div><div class="right"></div>
 </h1>
 <div id="body">
-	 <p class ="nav">
-		<a class="inNav" href="<?=site_url()?>">Home</a><br>
-		<a class="inNav" href="index.php/events">Events</a><br>
-		<a class="inNav" href="index.php/calendar">Calendar</a><br>
-		<a class="inNav" href="index.php/routes">Routes</a><br>
-		<a class="inNav" href="index.php/users">Users</a><br>
-		<a class="inNav" href="index.php/search">Search</a><br>
-	</p>
+    <?= generateNavBar()?>
 	<div id="wrap">
 	
 	<? 
@@ -20,7 +13,7 @@
        }
     ?><br>
 	   
-	<form name="recoveryForm" action="login/resetPassword/" method="post">
+                                      <form name="recoveryForm" action=<?='"' . site_url() . '/login/emailResetPassword/"'?> method="post">
 	<fieldset>
 	<legend>Reset Password</legend>
 	<ol>
