@@ -19,7 +19,8 @@ class Calendar extends CI_Controller{
         $data = array();
         #go through each result and populate this data shits!
         foreach($query->result() as $row){
-            echo "Starting on " . print_r($row);
+            #echo "Starting on " . print_r($row);
+            #echo " :::" . date("d",$row->date);
             #use this to see if this current user has permissions to view this event
             $permFlag = false;
             $tPerms = explode("|",$row->permissionedPeople);
@@ -31,7 +32,7 @@ class Calendar extends CI_Controller{
                 foreach($tPerms as $dick){
                     if($dick == $username){
                         $permFlag = true;
-                        echo "WOOT $dick";
+                        #echo "WOOT $dick";
                         break;
                     }
                 }
@@ -40,16 +41,15 @@ class Calendar extends CI_Controller{
             if($permFlag){
                 #so if you have permission you ass
                 #This shit's complex
-                $data[date("d",$row->date)][$row->title] = site_url() . "/events/showEvent/$row->uuid";
+                $data[date("j",$row->date)][$row->title] = site_url() . "/events/showEvent/$row->uuid";
             }
-            echo "<br>";
+#            echo "<br>";
         }
-
 #		$data = array( 
 #			5 => array('poo'=>'blah1','blah2'),
 #			20 => array('one of these things is not like the other')
 #		);
-		
+
 		$this->load->library('calendar');
         $vars['calendar'] = $this->calendar->generate($year,$month, $data);
         $vars['year'] = $year;

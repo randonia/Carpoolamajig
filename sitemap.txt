@@ -1,0 +1,22 @@
+Site Map
+
+Home
+
+Login
+	Forgot Password
+	Register
+		Registered
+
+Calendar
+	Show Calendar
+	
+Events
+	Show Events
+	
+User
+	Profile
+	User Page
+
+Search
+	Search User
+	Search Events
