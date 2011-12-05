@@ -10,7 +10,7 @@ class Calendar extends CI_Controller{
          */   		 
 		$this->db->select("uuid,title,date,permissionedPeople");
         $query = $this->db->get("events");
-
+        $vars['title'] = "View Calendar";
         if($this->session->userdata('username')){
             $username = $this->session->userdata('username');
         }

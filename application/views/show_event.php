@@ -12,13 +12,7 @@
 ?></div>
 </div></h1>
     <div id="body">
-	 <p class ="nav">
-		<a class="inNav" href="index.php/events">Events</a><br>
-		<a class="inNav" href="index.php/calendar">Calendar</a><br>
-		<a class="inNav" href="index.php/routes">Routes</a><br>
-		<a class="inNav" href="index.php/users">Users</a><br>
-		<a class="inNav" href="index.php/search">Search</a><br>
-	</p>
+       <?=generateNavBar()?>
 		<div id="wrap">
 		<fieldset>
 		<ul>
@@ -38,6 +32,7 @@
 				Information: <?=$info?>
 			</li>
 		</ul>
+       <?=makeGoogleImage($startAddr,$endAddr)?>
 		</fieldset>
 		</div>
     </div>
