@@ -1,7 +1,7 @@
 <?= generateHeader($title,base_url())?>
 <?= closeHeader()?>
 <h1>
-<div class="left">Carpoolamajig : Login</div><div class="right"></div>
+<div class="left">Carpoolamajig : Password Reset</div><div class="right"></div>
 </h1>
 <div id="body">
 	 <p class ="nav">

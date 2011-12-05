@@ -2,7 +2,7 @@ NOT IN ORDER OF IMPORTANCE
 
 //1. Allow users to sign up for events
 
-2. Make sure users cannot create events on days that have already passed
+//2. Make sure users cannot create events on days that have already passed
 
 //3. Invite users to events
 
