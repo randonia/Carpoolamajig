@@ -19,7 +19,7 @@
 	
 	<p>
 		THIS IS WHERE THE CALENDAR OF EVENTS GOES! THIS IS EVENTS2!!<br>
-        
+        <?=$calendar?>
 	</p>
 </div>
 

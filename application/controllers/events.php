@@ -31,6 +31,7 @@ class Events extends CI_Controller{
     function addEvent(){
         $data['title'] = "Event has been added";
         $time = $_POST['dateDay'] . " " . $_POST['dateMonth'] . " " . $_POST['dateYear'] . " " . $_POST['dateHour'] . ":" . $_POST['dateMin'];
+        echo "<BR><BR>::" .$time ."<br><br>";
         $ppeople = -1;
         if($_POST['vis'] == "public"){
             $ppeople = "-1" . "|" . $this->session->userdata('username');
@@ -57,7 +58,7 @@ class Events extends CI_Controller{
             #sauce
             $uuid = $row->uuid;
         }
-        redirect(site_url() . "/events/showEvent/" . $uuid,"redirect");
+#        redirect(site_url() . "/events/showEvent/" . $uuid,"redirect");
 #        $this->showEvent($uuid);
     }
 
@@ -79,5 +80,16 @@ class Events extends CI_Controller{
             $eventData['permissionedPeople'] = $row->permissionedPeople;
         }
         $this->load->view("show_event",$eventData);
+    }
+
+    function editEvent($id=0){
+        #if no id is provided, redirect!
+        if($id==0){
+            redirect(site_url(),"refresh");
+        }
+        $data['title'] = "Edit Event";
+        $this->db->select('*');
+        #grab all the datas from the events page
+        
     }
 }

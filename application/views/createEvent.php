@@ -113,22 +113,25 @@
      }
 </script>
 <?= closeHeader()?>
-<h1><div>
-<div class="left">Create an event</div><div class="right"><?
-       #check for the login or "you are logged in as" bit
+
+<h1>
+<div class="left">Carpoolamajig : Create Event</div><div class="right">
+	<?
        if($this->session->userdata('username')){
            echo "Logged in as: " . $this->session->userdata('username') . " ";
-           echo "<a href='" . site_url() . "/logout'>|Logout|</a>";
+           echo "<a class='inHeader' href='" . site_url() . "/logout'> Logout</a>";
        } else {
-           echo '<a href="index.php/login">Login</a>';
+           echo '<a class="inHeader" href="' . site_url() . '/login">Login</a>';
        }
-?></div>
+	?>
 </div>
 </h1>
 
 <div id="body">
-<p>
-Fill in the information for your event!
+	<?= generateNavBar()?>
+	
+	<div id="wrap">
+		Fill in the information for your event!
 <form name="eventForm" method="post" onsubmit="return validate()" action="addEvent">
        Title: <input type="text" name="eventTitle" size=50><br>
        Month: <select name="dateMonth">
@@ -176,8 +179,7 @@ Fill in the information for your event!
 
        <input type="submit">
 </form>
-
-</p>
+	</div>
 </div>
 
-<?echo generateFooter()?>
+<?= generateFooter()?>
