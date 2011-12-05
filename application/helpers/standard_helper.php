@@ -68,4 +68,37 @@ function googleifyText($text){
     return str_replace(" ","+",$text);
 }
 
+function randomTextGenerate(){
+    $word = "";
+    for($i=0; $i<10; $i++){
+        #48 122
+        switch(rand(1,3)){
+        case 1:
+            $word .= chr(rand(48,57));
+            break;
+        case 2:
+            $word .= chr(rand(65,90));
+            break;
+        case 3:
+            $word .= chr(rand(97,122));
+            break;
+        }
+    }
+    return $word;
+}
+function encodeText($text){
+    $res = "";
+    for($i=0; $i<strlen($text);$i++){
+        $res .= dechex(ord($text[$i]));
+    }
+    return $res;
+}
+function decodeText($text){
+    $res = "";
+    for($j=0; $j<strlen($text);$j+=2){
+        $res .= chr(hexdec($text[$j] . $text[$j+1]));
+    }
+    return $res;
+}
+
 ?>

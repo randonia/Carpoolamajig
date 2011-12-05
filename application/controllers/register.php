@@ -52,26 +52,14 @@ class Register extends CI_Controller{
           $this->load->view("register",$data);
 #          redirect("register",'refresh');
       } else {
+
           #The array to be passed into the insert function
           $insertionData = array('username' => $_POST['username'], 
-              'password' => $_POST['password1'], 'email' => $_POST['email']);
-          
-          $this->load->library('email');
-          $this->email->to($_POST['email']);
-          $this->email->from('god@carpoolamajig.com','Gob');
-          $this->email->subject('Thank you for signing up with Carpoolamajig!');
-          $this->email->message("Hello " . $_POST['username'] . "!\n\r Thank you" .
-              "for registering with Carpoolamajig.com! You should update " . 
-              " your bio so others can get some " . 
-              "info on you here: \n\r" . site_url() . "/users/editUser/" . $_POST['username']);
-          $this->email->send();
+              'password' => sha1($_POST['password1']), 'email' => $_POST['email']);
 
           #Insert the user into the database
           $this->db->insert('users', $insertionData);
 
-          #*****
-          #FIXME: We can't do plaintext passwords. Fix this later
-          #*****
           $id=0;
           $query = $this->db->get_where('users',array('username'=>$_POST['username']));
           foreach($query->result() as $row){
@@ -94,9 +82,17 @@ class Register extends CI_Controller{
           #Push that into the array to pass into the view
           $data['title'] = "Welcome " . $_POST['username'];
 
-          #Try to send an email
-          #Moo
-          
+          #Send a confirmation email! :D
+          $this->load->library('email');
+          $this->email->to($_POST['email']);
+          $this->email->from('god@carpoolamajig.com','Gob');
+          $this->email->subject('Thank you for signing up with Carpoolamajig!');
+          $this->email->message("Hello " . $_POST['username'] . "!\n\r Thank you" .
+              "for registering with Carpoolamajig.com! You should update " . 
+              " your bio so others can get some " . 
+              "info on you here: \n\r" . site_url() . "/users/editUser/" . $_POST['username']);
+          $this->email->send();
+
 
           #Load the view "registered"
           $this->load->view("registered", $data);
