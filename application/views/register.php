@@ -55,6 +55,16 @@
 				return false;
 			}
 			
+			// Create a substring out of the last 3 characters in the email field
+			var emailEnd = email.substring(LastDotPosition + 1);
+			// Check if the last part of the entered email is .edu
+			if (emailEnd != "edu")
+			{
+				alert("A student email ending with .edu is required to register for this website");
+				return false;
+			}
+			
+			
 			// If everything is valid
 			return true;
 			
