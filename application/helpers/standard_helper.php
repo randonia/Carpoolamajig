@@ -57,7 +57,9 @@ function makeGoogleImage($start,$end){
 
 #more magic
 function getGoogleImageCode($addr){
-    $result = '<img src="http://maps.googleapis.com/maps/api/staticmap?center=' . googleifyText($addr) . '&zoom=12&size=400x400&sensor=false" height="400" width="400"/>';
+    #$result = '<img src="http://maps.googleapis.com/maps/api/staticmap?center=' . googleifyText($addr) . '&zoom=12&size=400x400&sensor=false" height="400" width="400"/>';
+	#to add more addresses just stick another %7C in between the last address and &sensor=false
+	$result = '<img src="http://maps.googleapis.com/maps/api/staticmap?size=400x400&maptype=roadmap\&markers=size:mid%7Ccolor:red%7C' . googleifyText($addr) . '&sensor=false" height="400" width="400"/>';
     return $result;
 }
 
