@@ -35,13 +35,6 @@ CREATE TABLE IF NOT EXISTS `bios` (
 -- Dumping data for table `bios`
 --
 
-INSERT INTO `bios` (`id`, `bio`) VALUES
-(1, ''),
-(2, ''),
-(3, ''),
-(4, ''),
-(5, '');
-
 -- --------------------------------------------------------
 
 --
@@ -62,11 +55,6 @@ CREATE TABLE IF NOT EXISTS `events` (
 --
 -- Dumping data for table `events`
 --
-
-INSERT INTO `events` (`uuid`, `date`, `title`, `startAddr`, `endAddr`, `info`, `permissionedPeople`) VALUES
-(1, '1323395700', 'Love bunnies 2', '1002 King St Santa Cruz California', '1500 King St Santa Cruz California', 'We''re gonna get together and do fun things at 9', '-1|Z|V|Ryan'),
-(2, '1355018100', 'Love bunnies 5', '1002 King St Santa Cruz California', '1500 King St Santa Cruz California', 'We''re gonna get together and do fun things at 9', '-1|Z'),
-(3, '1324298100', 'Shake it like a Starbucks Doubleshot', '1002 King St Santa Cruz California', '2400 Bayshore Parkway Mountain View California', 'Paaaarrrrtttyyy', '-1|Z');
 
 -- --------------------------------------------------------
 
@@ -89,13 +77,6 @@ CREATE TABLE IF NOT EXISTS `poolerBios` (
 -- Dumping data for table `poolerBios`
 --
 
-INSERT INTO `poolerBios` (`id`, `score`, `carMake`, `carSeats`, `carGasComp`, `carAmenities`, `numRides`) VALUES
-(1, 0, '', 0, 0, '', 0),
-(2, 0, '', 0, 0, '', 0),
-(3, 0, '', 0, 0, '', 0),
-(4, 0, '', 0, 0, '', 0),
-(5, 0, '', 0, 0, '', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -112,12 +93,6 @@ CREATE TABLE IF NOT EXISTS `riderBios` (
 -- Dumping data for table `riderBios`
 --
 
-INSERT INTO `riderBios` (`id`, `score`) VALUES
-(1, 0),
-(2, 0),
-(3, 0),
-(4, 0),
-(5, 0);
 
 -- --------------------------------------------------------
 
@@ -138,7 +113,3 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `email`) VALUES
-(1, 'Z', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', 'randonia@ucsc.edu'),
-(4, 'Ryan', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', 'randonia@ucsc.edu'),
-(5, 'Brohan', 'dd19447119baf097c358b4f06856132491c74159', 'rprabhak@ucsc.edu');
