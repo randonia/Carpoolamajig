@@ -64,7 +64,7 @@
 				#If they did not, allow them to ask permission to join this event
 				else{
 					$hasPermission = false;
-					foreach ($arrangePeople as $person){
+					foreach ($arrangedPeople as $person){
 						if ($person == $this->session->userdata('username')){
 							$hasPermission = true;
 						}
