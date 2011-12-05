@@ -53,15 +53,15 @@
 			</li>
 			<li>
 				<label>Password</label>
-				<input type="text" name="password">
+				<input type="password" name="password">
 			</li>
 			<li>
 				<label>New Password</label>
-				<input type="text" name="newPassword">
+				<input type="password" name="newPassword">
 			</li>
 			<li>
 				<label>Confirm Password</label>
-				<input type="text" name="confirmPassword">
+				<input type="password" name="confirmPassword">
 			</li>
 		 </ul>
 		 <input type="submit" value="Save Changes">
