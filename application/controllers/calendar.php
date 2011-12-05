@@ -1,5 +1,4 @@
 <?
-
 class Calendar extends CI_Controller{
 	function index($year='',$month='')
 	{	
