@@ -56,7 +56,7 @@
 				#Check if the person viewing this page created this event
 				$arrangedPeople = explode("|",$permissionedPeople);
 				#If they did, allow them to invite friends
-				if ($arrangedPeople[1] == $username){
+                if ($arrangedPeople[1] == $this->session->userdata('username')){
 					echo "Invite a friend (Enter their username):";
 					echo '<input type="text" name="invite">';
 					echo '<input type="submit" value="Invite"><br>';

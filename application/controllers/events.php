@@ -94,16 +94,20 @@ class Events extends CI_Controller{
     }
 
     #adds a user to an event
-    function addUserToEvent(){
+    function addUserToEvent($id=0){
         #handle malformed URIs
+        if($id==0){
+            redirect(site_url(),"refresh");
+        }
         #check for user privies
-        $query = $this->db->get_where('events',array('uuid'=>$eventID));
+        $query = $this->db->get_where('events',array('uuid'=>$id));
         $permPeople = "";
-        foreach($query->result as $row){
+        foreach($query->result() as $row){
             $permPeople = $row->permissionedPeople;
             $permPeopleArr = explode("|",$permPeople);
         }
         #Czech if this person has permissions to edit the event!
+        $username = $_POST['invite'];
         if($permPeopleArr[1] == $this->session->userdata('username')){
             #now update some shit!
             #first check to see if they aren't already in the permPeople
@@ -117,13 +121,13 @@ class Events extends CI_Controller{
             }
             if(!$flag){
                 $permPeople .= "|" . $username;
-                $this->db->where('uuid',$eventID);
+                $this->db->where('uuid',$id);
                 $this->db->update('events',array('permissionedPeople'=>$permPeople));
                 #load the page again?
-                $this->showEvent($eventID);
             }
         } else {
             #Give them an error
         }
+        $this->showEvent($id);
     }
 }
