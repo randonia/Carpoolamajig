@@ -153,7 +153,15 @@ Fill in the information for your event!
        Year: <select name="dateYear"><?
        for($i=2011; $i<=2015;$i++){
            echo '<option value="' . $i . '">' .$i . "</option>\n";
-       }?></select><br>
+       }?></select>
+		 Hour: <select name="dateHour"><?
+		 for($i=0; $i<=23; $i++){
+			  echo '<option value"' . $i . '">' . $i . "</option>\n";
+		 }?></select><br>
+		 Minutes: <select name="dateMin"><?
+		 for($i=0; $i<=55; $i+=5){
+			  echo '<option value"' . $i . '">' . $i . "</option>\n";
+		 }?></select><br>
        Start Address: <br>
 				Street:<input type="text" name="startAddr" size=40><br>
 				City:<input type="text" name="startCity" size=40><br>
