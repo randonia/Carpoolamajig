@@ -78,6 +78,7 @@ class Events extends CI_Controller{
             $eventData['endAddr'] = $row->endAddr;
             $eventData['info'] = $row->info;
             $eventData['permissionedPeople'] = $row->permissionedPeople;
+            $eventData['id'] = $row->uuid;
         }
         $this->load->view("show_event",$eventData);
     }
@@ -90,6 +91,43 @@ class Events extends CI_Controller{
         $data['title'] = "Edit Event";
         $this->db->select('*');
         #grab all the datas from the events page
-        
+    }
+
+    #adds a user to an event
+    function addUserToEvent($id=0){
+        #handle malformed URIs
+        if($id==0){
+            redirect(site_url(),"refresh");
+        }
+        #check for user privies
+        $query = $this->db->get_where('events',array('uuid'=>$id));
+        $permPeople = "";
+        foreach($query->result() as $row){
+            $permPeople = $row->permissionedPeople;
+            $permPeopleArr = explode("|",$permPeople);
+        }
+        #Czech if this person has permissions to edit the event!
+        $username = $_POST['invite'];
+        if($permPeopleArr[1] == $this->session->userdata('username')){
+            #now update some shit!
+            #first check to see if they aren't already in the permPeople
+            $flag = false;
+            foreach($permPeopleArr as $person){
+                if($person == $username){
+                    #the person already is in here
+                    $flag = true;
+                    break;
+                }
+            }
+            if(!$flag){
+                $permPeople .= "|" . $username;
+                $this->db->where('uuid',$id);
+                $this->db->update('events',array('permissionedPeople'=>$permPeople));
+                #load the page again?
+            }
+        } else {
+            #Give them an error
+        }
+        $this->showEvent($id);
     }
 }

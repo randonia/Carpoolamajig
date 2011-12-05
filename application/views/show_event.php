@@ -1,4 +1,23 @@
 <?= generateHeader($title,base_url())?>
+<script type="text/javascript">
+	function validate()
+	{
+		// Ensure that the form value you need to validate exists
+		if (document.forms["inviteForm"]["invite"])
+		{
+			// Create a variable that holds the form's data
+			var check = document.forms["inviteForm"]["invite"].value;
+			// Check if it is filled out
+			if (check == null || check == "")
+			{
+				alert("I'm sorry you don't have any friends, but this field needs a username.");
+				return false;
+			}
+		}
+		
+		return true;
+	}
+</script>
 <?= closeHeader()?>
 <h1>
 <div>
@@ -30,6 +49,23 @@
 			</li>
 			<li>
 				Information: <?=$info?>
+			</li>
+			<li>
+			<form name="inviteForm" onsubmit="return validate()" action=<?= '"' . site_url() . '/events/addUserToEvent/' . $id . '"'?> method="post">
+			<?
+				#Check if the person viewing this page created this event
+				$arrangedPeople = explode("|",$permissionedPeople);
+				#If they did, allow them to invite friends
+                if ($arrangedPeople[1] == $this->session->userdata('username')){
+					echo "Invite a friend (Enter their username):";
+					echo '<input type="text" name="invite">';
+					echo '<input type="submit" value="Invite"><br>';
+				}
+				#If they did not, allow them to ask permission to join this event
+				else{
+					echo '<input type="submit" value="Request invitation to Event"><br>';
+				}
+			?>
 			</li>
 		</ul>
        <?=makeGoogleImage($startAddr,$endAddr)?>
