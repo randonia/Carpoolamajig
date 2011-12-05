@@ -1,10 +1,10 @@
 NOT IN ORDER OF IMPORTANCE
 
-1. Allow users to sign up for events
+//1. Allow users to sign up for events
 
 2. Make sure users cannot create events on days that have already passed
 
-3. Invite users to events
+//3. Invite users to events
 
 4. Format needs
 
@@ -13,7 +13,7 @@ NOT IN ORDER OF IMPORTANCE
 	C. User page
 	D. Edit user
 	
-5. User password recovery
+5. User password recovery and comfirmation
 
 6. Ensure we have all form validation and it all works
 
