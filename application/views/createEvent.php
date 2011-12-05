@@ -157,7 +157,7 @@ Fill in the information for your event!
 		 Hour: <select name="dateHour"><?
 		 for($i=0; $i<=23; $i++){
 			  echo '<option value"' . $i . '">' . $i . "</option>\n";
-		 }?></select><br>
+		 }?></select>
 		 Minutes: <select name="dateMin"><?
 		 for($i=0; $i<=55; $i+=5){
 			  echo '<option value"' . $i . '">' . $i . "</option>\n";
