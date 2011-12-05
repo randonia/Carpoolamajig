@@ -17,7 +17,7 @@ class Events extends CI_Controller{
 
     function createEvent(){
         #If you're logged in
-        # HEY ASSHOLE: This is where you can look for the "If you're logged in" code
+        # HEY BUNNY: This is where you can look for the "If you're logged in" code
         if($this->session->userdata('username')){
             $data['title'] = "Create a new event!";
             $this->load->view("createEvent",$data);
@@ -30,7 +30,7 @@ class Events extends CI_Controller{
 
     function addEvent(){
         $data['title'] = "Event has been added";
-        $time = $_POST['dateDay'] . " " . $_POST['dateMonth'] . " " . $_POST['dateYear'];
+        $time = $_POST['dateDay'] . " " . $_POST['dateMonth'] . " " . $_POST['dateYear'] . " " . $_POST['dateHour'] . ":" . $_POST['dateMin'];
         $ppeople = -1;
         if($_POST['vis'] == "public"){
             $ppeople = "-1" . "|" . $this->session->userdata('username');
@@ -57,7 +57,8 @@ class Events extends CI_Controller{
             #sauce
             $uuid = $row->uuid;
         }
-        $this->showEvent($uuid);
+        redirect(site_url() . "/events/showEvent/" . $uuid,"redirect");
+#        $this->showEvent($uuid);
     }
 
     function showEvent($id=0){
@@ -70,13 +71,13 @@ class Events extends CI_Controller{
         foreach($query->result() as $row){
             #this is baus
             #print_r($row);
-				$eventData = $row;
-				$eventData['date'] = $row->date;
-				$eventData['title'] = $row->title;
-				$eventData['startAddr'] = $row->startAddr;
-				$eventData['endAddr'] = $row->endAddr;
-				$eventData['info'] = $row->info;
-				$eventData['permissionedPeople'] = $row->permissionedPeople;
+            $eventData['date'] = $row->date;
+            $eventData['title'] = $row->title;
+            $eventData['startAddr'] = $row->startAddr;
+            $eventData['endAddr'] = $row->endAddr;
+            $eventData['info'] = $row->info;
+            $eventData['permissionedPeople'] = $row->permissionedPeople;
         }
+        $this->load->view("show_event",$eventData);
     }
 }
