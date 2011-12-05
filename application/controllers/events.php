@@ -39,8 +39,8 @@ class Events extends CI_Controller{
         }
         $query = array( 'date' => strtotime($time),
             'title' => $_POST['eventTitle'],
-            'startAddr' => $_POST['startAddr'],
-            'endAddr' => $_POST['endAddr'],
+            'startAddr' => $_POST['startAddr'] . " " . $_POST['startCity'] . " " . $_POST['startState'],
+            'endAddr' => $_POST['endAddr'] . " " . $_POST['endCity'] . " " . $_POST['endState'],
             'info' => $_POST['description'],
             'permissionedPeople' => $ppeople);
         # insert the above ^ from the form into the events DB
