@@ -55,6 +55,16 @@ class Register extends CI_Controller{
           #The array to be passed into the insert function
           $insertionData = array('username' => $_POST['username'], 
               'password' => $_POST['password1'], 'email' => $_POST['email']);
+          
+          $this->load->library('email');
+          $this->email->to($_POST['email']);
+          $this->email->from('god@carpoolamajig.com','Gob');
+          $this->email->subject('Thank you for signing up with Carpoolamajig!');
+          $this->email->message("Hello " . $_POST['username'] . "!\n\r Thank you" .
+              "for registering with Carpoolamajig.com! You should update " . 
+              " your bio so others can get some " . 
+              "info on you here: \n\r" . site_url() . "/users/editUser/" . $_POST['username']);
+          $this->email->send();
 
           #Insert the user into the database
           $this->db->insert('users', $insertionData);

@@ -119,7 +119,7 @@ class Events extends CI_Controller{
                     break;
                 }
             }
-            if(!$flag){
+            if(!$flag && $_POST['invite']){
                 $permPeople .= "|" . $username;
                 $this->db->where('uuid',$id);
                 $this->db->update('events',array('permissionedPeople'=>$permPeople));
