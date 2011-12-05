@@ -74,12 +74,21 @@
 				return false;
 			}
 			
-			
 			// Check to make sure the user's selected date hasn't already happened
+			if (!checkDate()){
+				alert("Unless you have a time machine, please set the event time after the current time.");
+				return false;
+			}
 			
+			// If everything is valid
+         return true;
+     }
+	  
+	  function checkDate()
+	  {
 			// Get today's date
 			var todayDate = new Date();
-			todayDate = getTime();
+			// todayDate = getTime();
 			
 			// String of months used to find the numerical month value
 			// for use in checking the current date against the events
@@ -102,15 +111,28 @@
 			var eventDate = new Date();
 			eventDate.setFullYear(eventYear,eventMonth,eventDay);
 			
-			if(eventDate < todayDate)
+			if (eventDate.getFullYear() < todayDate.getFullYear())
 			{
-				alert("The selected date has already passed!");
 				return false;
 			}
+			else if (eventDate.getFullYear() == todayDate.getFullYear())
+			{
+				if (eventDate.getMonth() < todayEvent.getMonth())
+				{
+					return false;
+				}
+				else if (eventDate.getMonth() == todayEvent.getMonth())
+				{
+					if (eventDate.getDate() < todayEvent.getDate())
+					{
+						return false;
+					}
+				}
+			}
 			
-			// If everything is valid
-         return true;
-     }
+			return true;
+			
+	  }
 </script>
 <?= closeHeader()?>
 
