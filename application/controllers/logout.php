@@ -1,5 +1,4 @@
 <? 
-
 class Logout extends CI_Controller{
 
     function index(){

@@ -1,5 +1,4 @@
 <?
-
 class EmailSetup extends CI_Controller{
     function index(){
         #$config['protocol'] = "smtp";
