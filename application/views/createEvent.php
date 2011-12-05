@@ -166,7 +166,7 @@ Fill in the information for your event!
 				Street:<input type="text" name="startAddr" size=40><br>
 				City:<input type="text" name="startCity" size=40><br>
 				State:<input type="text" name="startState" size=40><br>
-       End Address: 
+       End Address:  <br>
 				Street:<input type="text" name="endAddr" size=40><br>
 				City:<input type="text" name="endCity" size=40><br>
 				State:<input type="text" name="endState" size=40><br>
