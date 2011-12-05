@@ -13,25 +13,61 @@
 			
 			// Set check to start address
 			check = document.forms["eventForm"]["startAddr"].value;
-			// Check the event title
+			// Check the event start street
 			if (check == null || check == "")
 			{
-				alert("Please enter a start address.");
+				alert("Please enter a starting street.");
+				return false;
+			}
+			
+			// Set check to start city
+			check = document.forms["eventForm"]["startCity"].value;
+			// Check the event start city
+			if (check == null || check == "")
+			{
+				alert("Please enter a starting city.");
+				return false;
+			}
+			
+			// Set check to start state
+			check = document.forms["eventForm"]["startState"].value;
+			// Check the event start state
+			if (check == null || check == "")
+			{
+				alert("Please enter a starting state.");
 				return false;
 			}
 			
 			// Set check to end address
 			check = document.forms["eventForm"]["endAddr"].value;
-			// Check the event title
+			// Check the event end street
 			if (check == null || check == "")
 			{
-				alert("Please enter an end address.");
+				alert("Please enter an end street.");
 				return false;
 			}
 			
-			// Set check to end address
+			// Set check to end city
+			check = document.forms["eventForm"]["endCity"].value;
+			// Check the event end city
+			if (check == null || check == "")
+			{
+				alert("Please enter an end city.");
+				return false;
+			}
+			
+			// Set check to end state
+			check = document.forms["eventForm"]["endState"].value;
+			// Check the event end state
+			if (check == null || check == "")
+			{
+				alert("Please enter an state.");
+				return false;
+			}
+			
+			// Set check to description
 			check = document.forms["eventForm"]["description"].value;
-			// Check the event title
+			// Check the event description
 			if (check == null || check == "")
 			{
 				alert("Please enter a description for this event.");
@@ -118,8 +154,14 @@ Fill in the information for your event!
        for($i=2011; $i<=2015;$i++){
            echo '<option value="' . $i . '">' .$i . "</option>\n";
        }?></select><br>
-       Start Address: <input type="text" name="startAddr" size=40><br>
-       End Address: <input type="text" name="endAddr" size=40><br>
+       Start Address: <br>
+				Street:<input type="text" name="startAddr" size=40><br>
+				City:<input type="text" name="startCity" size=40><br>
+				State:<input type="text" name="startState" size=40><br>
+       End Address: 
+				Street:<input type="text" name="endAddr" size=40><br>
+				City:<input type="text" name="endCity" size=40><br>
+				State:<input type="text" name="endState" size=40><br>
        <!-- THIS NEEDS A BIG TEXTBOX! -->
        Description: <input type="text" name="description" size=50 height=50><br>
        Visibility: <input type="radio" name="vis" value="public" checked>Public</input> <input type="radio" name="vis" value="private">Private</input><br>
