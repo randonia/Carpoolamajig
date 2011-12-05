@@ -22,7 +22,7 @@
 	   
 	<form name="recoveryForm" action="login/resetPassword/" method="post">
 	<fieldset>
-	<legend>Login!</legend>
+	<legend>Reset Password</legend>
 	<ol>
 	<li>
 	<!-- reference to non-existent ID "username", possible missing id attr -->
