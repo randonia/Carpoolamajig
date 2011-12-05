@@ -56,14 +56,25 @@
 				#Check if the person viewing this page created this event
 				$arrangedPeople = explode("|",$permissionedPeople);
 				#If they did, allow them to invite friends
-                if ($arrangedPeople[1] == $this->session->userdata('username')){
+            if ($arrangedPeople[1] == $this->session->userdata('username')){
 					echo "Invite a friend (Enter their username):";
 					echo '<input type="text" name="invite">';
 					echo '<input type="submit" value="Invite"><br>';
 				}
 				#If they did not, allow them to ask permission to join this event
 				else{
-					echo '<input type="submit" value="Request invitation to Event"><br>';
+					$hasPermission = false;
+					foreach ($arrangePeople as $person){
+						if ($person == $this->session->userdata('username')){
+							$hasPermission = true;
+						}
+					}
+					if ($hasPermission){
+						echo 'You are attending this event!';
+					}
+					else{
+						echo '<input type="submit" value="Request invitation to Event"><br>';
+					}
 				}
 			?>
 			</li>
