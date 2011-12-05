@@ -58,7 +58,7 @@
 				#If they did, allow them to invite friends
             if ($arrangedPeople[1] == $this->session->userdata('username')){
 					echo "Invite a friend (Enter their username):";
-					echo '<input type="text" name="invite">';
+					echo '<input type="text" name="invite" value="'.$invitee.'">';
 					echo '<input type="submit" value="Invite"><br>';
 				}
 				#If they did not, allow them to ask permission to join this event

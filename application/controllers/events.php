@@ -62,7 +62,7 @@ class Events extends CI_Controller{
 #        $this->showEvent($uuid);
     }
 
-    function showEvent($id=0){
+    function showEvent($id=0,$invite=""){
         #if no argument is provided, then they should just be forwarded to the main page
         # because fuck you.
         if($id==0){
@@ -80,6 +80,7 @@ class Events extends CI_Controller{
             $eventData['permissionedPeople'] = $row->permissionedPeople;
             $eventData['id'] = $row->uuid;
         }
+        $eventData['invitee'] = $invite;
         $this->load->view("show_event",$eventData);
     }
 
@@ -99,35 +100,95 @@ class Events extends CI_Controller{
         if($id==0){
             redirect(site_url(),"refresh");
         }
-        #check for user privies
-        $query = $this->db->get_where('events',array('uuid'=>$id));
-        $permPeople = "";
-        foreach($query->result() as $row){
-            $permPeople = $row->permissionedPeople;
-            $permPeopleArr = explode("|",$permPeople);
-        }
-        #Czech if this person has permissions to edit the event!
-        $username = $_POST['invite'];
-        if($permPeopleArr[1] == $this->session->userdata('username')){
-            #now update some shit!
-            #first check to see if they aren't already in the permPeople
-            $flag = false;
-            foreach($permPeopleArr as $person){
-                if($person == $username){
-                    #the person already is in here
-                    $flag = true;
-                    break;
+
+        #if invite exists, we're adminning, otherwise, it's a request
+        if(isset($_POST['invite'])){
+            #check for user privies
+            $query = $this->db->get_where('events',array('uuid'=>$id));
+            $permPeople = "";
+            foreach($query->result() as $row){
+                $permPeople = $row->permissionedPeople;
+                $permPeopleArr = explode("|",$permPeople);
+            }
+            #Czech if this person has permissions to edit the event!
+            $username = $_POST['invite'];
+            if($permPeopleArr[1] == $this->session->userdata('username')){
+                #now update some shit!
+                #first check to see if they aren't already in the permPeople
+                $flag = false;
+                foreach($permPeopleArr as $person){
+                    if($person == $username){
+                        #the person already is in here
+                        $flag = true;
+                        break;
+                    }
+                }
+                if(!$flag && $_POST['invite']){
+                    $permPeople .= "|" . $username;
+                    $this->db->where('uuid',$id);
+                    $this->db->update('events',array('permissionedPeople'=>$permPeople));
+                    #load the page again?
+                }
+            } else {
+                #Give them an error
+            }
+        } else { #if $_POST['invite'] DNE, then the user is sending a request!
+            #grab the username from session:
+            $currentusername = $this->session->userdata('username');
+            $this->db->select('*');
+            $query = $this->db->get_where("events",array('uuid'=>$id));
+            $permPeople = "";
+            $eventName = "";
+            foreach($query->result() as $row){
+                $permPeople = $row->permissionedPeople;
+                $eventName = $row->title;
+            }
+            $essploded = explode("|",$permPeople);
+            $owner = $essploded[1];
+            #***
+            # Prevent this email from being sent a lot, we can do it in session data
+            #***
+            
+            $spamCheck = explode("|",$this->session->userdata('requestedAccessIDs'));
+            $spamFlag = false;
+            for($i=0; $i<count($spamCheck); $i++){
+                if($id == $spamCheck[$i]){
+                    $spamFlag = true;
                 }
             }
-            if(!$flag && $_POST['invite']){
-                $permPeople .= "|" . $username;
-                $this->db->where('uuid',$id);
-                $this->db->update('events',array('permissionedPeople'=>$permPeople));
-                #load the page again?
+            if($spamFlag){
+                $this->session->set_flashdata('errNo','1');
+                $this->session->set_flashdata('errData','You have already requested access to this event');
+                redirect(site_url() . "/events/showEvent/" . $id,"refresh");
             }
-        } else {
-            #Give them an error
+
+            #get the email of both users
+            $requesterEmail='';
+            $query = $this->db->get_where('users',array('username'=>$currentusername));
+            foreach($query->result() as $row){
+                $requesterEmail = $row->email;
+            }
+            #now get the owner
+            $query = $this->db->get_where('users',array('username'=>$owner));
+            $ownerEmail='';
+            foreach($query->result() as $row){
+                $ownerEmail = $row->email;
+            }
+
+            $this->load->library('email');
+            $this->email->to($ownerEmail);
+            $this->email->from("god@carpoolamajig.com",'Gob');
+            $this->email->subject($currentusername . " has requested permission to view " . $eventName);
+            $this->email->message("Hello " . $owner . "\n\r" . $currentusername . " has requested permission to view the event titled: " . $eventName . ". You can grant them permission by going to the event page and entering their username in the 'Invite a Friend' field of the event page. You can go straight to the event page with this link: \n\r " . site_url() . "/events/showEvent/" . $id . "/" . $currentusername . "\n\rThank you!\n\rGob ");
+            $this->email->send();
+            
+            $foo = $this->session->userdata('requestedAccessIDs');
+            $foo .= "|" . $id;
+            $this->session->set_userdata('requestedAccessIDs',$foo);
         }
-        $this->showEvent($id);
+        $this->session->set_flashdata('errNo','2');
+        $this->session->set_flashdata('errData','Access request sent!');
+        redirect(site_url() . "/events/showEvent/" . $id,"refresh");
+#        $this->showEvent($id);
     }
 }
