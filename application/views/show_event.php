@@ -20,7 +20,7 @@
 				Title: <?=$title?>
 			</li>
 			<li>
-       Date: <?=date("l, F j Y",$date)?>
+       Date: <?=date("l, F j Y g:i a",$date)?>
 			</li>
 			<li>
 				Start Address: <?=$startAddr?>
