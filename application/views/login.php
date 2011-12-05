@@ -45,7 +45,7 @@
 	<!-- should be a close ol here -->
 	</ol>
 	<!-- end fieldset tag should go here -->
-	Need an  an account? Register <a class="inText" href="register">here!</a>
+                                      Need an  an account? Register <a class="inText" href="register">here!</a><br> Forgot your password? Click <a class="inText" href=<?= '"'.site_url().'/login/resetPassword"'?>>here!</a>
 	</fieldset>
     </form>
     </div>

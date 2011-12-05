@@ -13,7 +13,7 @@
        }
     ?><br>
 	   
-	You have successfully reset your password! Return home <a href=<?="site_url()"?>>here!</a>
+	You have successfully reset your password! Return home <a href=<?='"'.site_url().'"'?>>here!</a>
     </div>
 	   
 </div>

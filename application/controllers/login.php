@@ -46,7 +46,16 @@ class Login extends CI_Controller{
         #update the database
         $this->db->where(array('username'=>$username,"email" => $email));
         $this->db->update('users',array("password"=>sha1($str)));
-        
+
+        $this->load->library('email');
+        $this->email->to($email);
+        $this->email->from("god@carpoolamajig.com",'Gob');
+        $this->email->subject('Your password has been reset!');
+        $this->email->message("Hello " . $username . "!\n\rYour password has been reset to " .
+            $str . ". Please use this to log in! Thanks :D");
+        $this->email->send();
+
+        $this->load->view("reset_success",$data);
     }
 
     #this function is ridicululz. This place has penguins yo!
@@ -67,7 +76,7 @@ class Login extends CI_Controller{
         $this->email->send();
 
         echo $this->email->print_debugger();
-        echo "Foo";
+        redirect(site_url() . "/login","refresh");
     }
 }
 
