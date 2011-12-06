@@ -24,7 +24,7 @@ class Events extends CI_Controller{
                 for($i=0; $i<count($arr); $i++){
                     if($arr[$i] == $this->session->userdata('username')){
                         #toss it on in!
-                        $data['bigassListOfEventsAttending'] .= makeLinkToEvent($row->uuid,$row->title);
+                        $data['bigassListOfEventsAttending'] .= makeLinkToEvent($row->uuid,$row->title) . "<br>";
                     }
                 }
             }

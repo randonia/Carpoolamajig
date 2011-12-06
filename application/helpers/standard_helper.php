@@ -29,7 +29,7 @@ function generateNavBar(){
 	$result .="<a class='inNav' href=".site_url().">Home</a><br>\n";
 	$result .="<a class='inNav' href=".site_url()."/calendar>Calendar</a><br>\n";
 	$result .="<a class='inNav' href=".site_url()."/events>My Events</a><br>\n";
-	$result .="<a class='inNav' href=".site_url()."/users>Users</a><br>\n";
+	$result .="<a class='inNav' href=".site_url()."/users/showUser/>My Profile</a><br>\n";
 	$result .="<a class='inNav' href=".site_url()."/search>Search</a><br>\n";
 	$result .="</p>\n";
 	return $result;
@@ -102,5 +102,20 @@ function decodeText($text){
 
 function makeLinkToEvent($id,$title){
     return '<a class="inText" href="' . site_url() . '/events/showEvent/' . $id . '">' . $title . '</a>';
+}
+
+function makeAvatarImage($url){
+    $arr = getimagesize($url);
+    #$arr[0] is width, $arr[1] is height
+    $width = $arr[0];
+    $height = $arr[1];
+    #make a scaler scalar value to scale the image
+    $scalar = 1;
+    if($width >= 200){
+        $scalar = 200 / $width;
+    } else if ($height >= 200){
+        $scalar = 200 / $height;
+    }
+    return '<img src="' . $url . '" width="' . $width * $scalar . '" height="' . $height * $scalar . '" />';
 }
 ?>

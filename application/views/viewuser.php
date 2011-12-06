@@ -19,10 +19,10 @@
 
 	<div id="wrap">
 		<fieldset>
-			<legend><?= $username ?>'s Bio</legend>
+			<legend><?= $username . "'" ?>s Bio</legend>
 			<ol>
 				<li>
-					<img src="<?=$avatarURL?>" />
+					<?=makeAvatarImage($avatarURL)?>
 				</li>
 				<li>
 					Bio:<br>
