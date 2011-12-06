@@ -3,7 +3,7 @@ body {
     margin: 40px;
     font: 13px/20px normal Helvetica, Arial, sans-serif;
     color: #B1D372;
-	word-wrap:break-word;
+	word-wrap: break-word;
 }
 
 a {
@@ -59,6 +59,8 @@ fieldset {
 	margin: 0 0 1.5em 0;
 	padding: 0;
 	border: 1px solid #38A513;
+	max-width: 500px;
+	word-wrap: break-word;
 }
 
 fieldset.submit {
@@ -72,6 +74,10 @@ legend {
 	margin-left: 1em;
 	padding: 2px;
 	font-weight: bold;
+}
+
+span.map {
+	padding: 0 0 0 50px;
 }
 
 /* For Header Format */
@@ -131,7 +137,6 @@ p.min {
 	width: 400px;
 }
 
-
 #body{
 	margin: 0 15px 0 15px;
 }
@@ -147,6 +152,7 @@ p.footer{
     margin: 10px;
 	border: 1px solid #38A513;
     -webkit-box-shadow: 0 0 15px 5px #38A513;
+	overflow: auto;
 }"
 
 /*code {

@@ -153,54 +153,111 @@
 	<?= generateNavBar()?>
 	
 	<div id="wrap">
-		Fill in the information for your event!
-<form name="eventForm" method="post" onsubmit="return validate()" action="addEvent">
-       Title: <input type="text" name="eventTitle" size=50><br>
-       Month: <select name="dateMonth">
-       <option value="Jan">January</option>
-       <option value="Feb">February</option>
-       <option value="Mar">March</option>
-       <option value="Apr">April</option>
-       <option value="May">May</option>
-       <option value="Jun">June</option>
-       <option value="Jul">July</option>
-       <option value="Aug">August</option>
-       <option value="Sep">September</option>
-       <option value="Oct">October</option>
-       <option value="Nov">November</option>
-       <option value="Dec">December</option>
-       </select>
-       Day: <select name="dateDay"><? 
-       for($i=1; $i<=31;$i++){
-           echo '<option value="' . $i . '">' . $i . "</option>\n";
-       }?>
-       </select>
-       Year: <select name="dateYear"><?
-       for($i=2011; $i<=2015;$i++){
-           echo '<option value="' . $i . '">' .$i . "</option>\n";
-       }?></select>
-		 Hour: <select name="dateHour"><?
-		 for($i=0; $i<=23; $i++){
-			  echo '<option value"' . $i . '">' . $i . "</option>\n";
-		 }?></select>
-		 Minutes: <select name="dateMin"><?
-		 for($i=0; $i<=55; $i+=5){
-			  echo '<option value"' . $i . '">' . $i . "</option>\n";
-		 }?></select><br>
-       Start Address: <br>
-				Street:<input type="text" name="startAddr" size=40><br>
-				City:<input type="text" name="startCity" size=40><br>
-				State:<input type="text" name="startState" size=40><br>
-       End Address:  <br>
-				Street:<input type="text" name="endAddr" size=40><br>
-				City:<input type="text" name="endCity" size=40><br>
-				State:<input type="text" name="endState" size=40><br>
-       <!-- THIS NEEDS A BIG TEXTBOX! -->
-       Description: <input type="text" name="description" size=50 height=50><br>
-       Visibility: <input type="radio" name="vis" value="public" checked>Public</input> <input type="radio" name="vis" value="private">Private</input><br>
-
-       <input type="submit">
-</form>
+		<form name="eventForm" method="post" onsubmit="return validate()" action="addEvent">
+			<fieldset>
+				<legend>Create Event!</legend>
+				<ol>
+					<li>
+						<label for="eventTitle">Title:</label>
+						<input type="text" name="eventTitle" size=50>
+					</li>
+					<li>
+						<label for="dateMonth">Date:</label>
+						<select name="dateMonth">
+							<option value="Jan">January</option>
+							<option value="Feb">February</option>
+							<option value="Mar">March</option>
+							<option value="Apr">April</option>
+							<option value="May">May</option>
+							<option value="Jun">June</option>
+							<option value="Jul">July</option>
+							<option value="Aug">August</option>
+							<option value="Sep">September</option>
+							<option value="Oct">October</option>
+							<option value="Nov">November</option>
+							<option value="Dec">December</option>
+						</select>
+						<select name="dateDay">
+							<? 
+							   for($i=1; $i<=31;$i++){
+								   echo '<option value="' . $i . '">' . $i . "</option>\n";
+							   }
+							?>
+						</select>
+						<select name="dateYear">
+							<?
+								for($i=2011; $i<=2015;$i++){
+								   echo '<option value="' . $i . '">' .$i . "</option>\n";
+								}
+							?>
+						</select>
+					</li>
+					<li>
+						<label for="dateHour">Time:</label>
+						<select name="dateHour">
+							<?
+								for($i=0; $i<=23; $i++){
+									echo '<option value"' . $i . '">' . $i . "</option>\n";
+								}
+							?>
+						</select>
+						<select name="dateMin">
+							<?
+								for($i=0; $i<=55; $i+=5){
+									echo '<option value"' . $i . '">' . $i . "</option>\n";
+								}
+							?>
+						</select>
+					</li>
+					<li>
+						Start Address:
+						<ul>
+							<li>
+								<label for="startAddr">Street:</label>
+								<input type="text" name="startAddr" size=40>
+							</li>
+							<li>
+								<label for="startCity">City:</label>
+								<input type="text" name="startCity" size=40>
+							</li>
+							<li>
+								<label for="startState">State:</label>
+								<input type="text" name="startState" size=40>
+							</li>
+						</ul>
+					</li>
+					<li>
+						End Address:
+						<ul>
+							<li>
+								<label for="endAddr">Street:</label>
+								<input type="text" name="endAddr" size=40>
+							</li>
+							<li>
+								<label for="endCity">City:</label>
+								<input type="text" name="endCity" size=40>
+							</li>
+							<li>
+								<label for="endState">State:</label>
+								<input type="text" name="endState" size=40>
+							</li>
+						</ul>
+					</li>
+					<!-- THIS NEEDS A BIG TEXTBOX! -->
+					<li>
+						<label for="description">Description:</label>
+						<textarea name="description" rows=6 cols=40></textarea>
+					</li>
+					<li>
+						<label for="vis">Visibility:</label>
+						<input type="radio" name="vis" value="public" checked>Public</input> <input type="radio" name="vis" value="private">Private</input>
+					</li>
+					<li>
+						<input type="submit">
+					</li>
+				</ol>
+			</fieldset>
+		</form>
 	</div>
 </div>
 

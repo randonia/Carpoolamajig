@@ -17,10 +17,7 @@
 <div id="body">
 	<?= generateNavBar()?>
 	
-	<p>
-		THIS IS WHERE THE CALENDAR OF EVENTS GOES! THIS IS EVENTS2!!<br>
-        <?=$calendar?>
-	</p>
+    <?=$calendar?>
 </div>
 
 <?= generateFooter()?>

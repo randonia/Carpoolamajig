@@ -71,68 +71,69 @@
 		}
 </script>
 <?= closeHeader()?>
+
 <h1>
-<div class="left">Carpoolamajig : Register</div><div class="right"></div>
-</h1>
-<div id="body">
-	<p class ="nav">
-		<a class="inNav" href="<?=site_url()?>">Home</a><br>
-		<a class="inNav" href="index.php/events">Events</a><br>
-		<a class="inNav" href="index.php/calendar">Calendar</a><br>
-		<a class="inNav" href="index.php/routes">Routes</a><br>
-		<a class="inNav" href="index.php/users">Users</a><br>
-		<a class="inNav" href="index.php/search">Search</a><br>
-	</p>
-	<div id="wrap">
-	<? 
-       if(isset($errorcode)){ 
-        switch($errorcode){
-         case 'improperInput':
-           echo "You failed to register properly. Please check your inputs.";
-           break;
-         case 'usernameTaken':
-           echo "You tried registering a username that was already taken.";
-           break;
-         default:
-           echo "Uncaught errorcode: " . $errorcode;
-           break;
-           }
+<div class="left">Carpoolamajig : Register</div><div class="right">
+	<?
+       if($this->session->userdata('username')){
+           echo "Logged in as: " . $this->session->userdata('username') . " ";
+           echo "<a class='inHeader' href='" . site_url() . "/logout'> Logout</a>";
+       } else {
+           echo '<a class="inHeader" href="' . site_url() . '/login">Login</a>';
        }
-       ?>
- <form name="registrationForm" onsubmit="return validate()" action="register/commitForm/" method="post">
- <fieldset>
- <legend>Make An Account!</legend>
- <ol>
- <li>
- <label for="username">Username:</label>
- <input type="text" name="username">
- </li>
- <li>
- <label for="password1">Password:</label>
- <input type="password" name="password1">
- </li>
- <li>
- <label for="password2">Confirm Password:</label>
- <input type="password" name="password2">
- </li>
- <li>
- <label for="email">E-mail:</label>
- <input type="text" name="email">
- </li>
-<li>
-<input type="submit" value="Register!">
-<input type="reset">
-</li>
-</ol>
-</fieldset >
-</form>
+	?>
+</div>
+</h1>
+
+<div id="body">
+	<?= generateNavBar()?>
+	
+	<div id="wrap">
+		<strong>
+		<? 
+		   if(isset($errorcode)){ 
+			switch($errorcode){
+			 case 'improperInput':
+			   echo "You failed to register properly. Please check your inputs.";
+			   break;
+			 case 'usernameTaken':
+			   echo "You tried registering a username that was already taken.";
+			   break;
+			 default:
+			   echo "Uncaught errorcode: " . $errorcode;
+			   break;
+			   }
+		   }
+		?>
+		</strong>
+		<form name="registrationForm" onsubmit="return validate()" action="register/commitForm/" method="post">
+			<fieldset>
+			<legend>Make An Account!</legend>
+				<ol>
+				<li>
+					<label for="username">Username:</label>
+					<input type="text" name="username">
+				</li>
+				<li>
+					<label for="password1">Password:</label>
+					<input type="password" name="password1">
+				</li>
+				<li>
+					<label for="password2">Confirm Password:</label>
+					<input type="password" name="password2">
+				</li>
+				<li>
+					<label for="email">E-mail:</label>
+					<input type="text" name="email">
+				</li>
+				<li>
+					<input type="submit" value="Register!">
+					<input type="reset">
+				</li>
+				</ol>
+			</fieldset >
+		</form>
+	</div>
 </div>
 
-	<p class="min"> </p>
-		<p class="footer">
-			<? if(isset($dateMod)){echo "This page was last updated on $dateMod";}?> 
-	We are using <a href="http://codeigniter.com/" class="inText">CodeIgniter</a> for this project. w00tcakes.</p>
-		   <? 
-		   ?>
-</div>
 <?= generateFooter()?>
