@@ -771,6 +771,5 @@ class CI_Session {
 
 }
 // END Session Class
-
 /* End of file Session.php */
 /* Location: ./system/libraries/Session.php */
