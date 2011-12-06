@@ -1,0 +1,133 @@
+<?= generateHeader($title,base_url())?>
+<script type="text/javascript">
+     function validate(){
+			// check will be used to confirm that all forms have been filled out
+			var check = document.forms["eventForm"]["eventTitle"].value;
+			
+			// Check the event title
+			if (check == null || check == "")
+			{
+				alert("Please enter an event title.");
+				return false;
+			}
+			
+			// Set check to start address
+			check = document.forms["eventForm"]["startAddr"].value;
+			// Check the event title
+			if (check == null || check == "")
+			{
+				alert("Please enter a start address.");
+				return false;
+			}
+			
+			// Set check to end address
+			check = document.forms["eventForm"]["endAddr"].value;
+			// Check the event title
+			if (check == null || check == "")
+			{
+				alert("Please enter an end address.");
+				return false;
+			}
+			
+			// Set check to end address
+			check = document.forms["eventForm"]["description"].value;
+			// Check the event title
+			if (check == null || check == "")
+			{
+				alert("Please enter a description for this event.");
+				return false;
+			}
+			
+			
+			// Check to make sure the user's selected date hasn't already happened
+			
+			// Get today's date
+			var todayDate = new Date();
+			todayDate = getTime();
+			
+			// String of months used to find the numerical month value
+			// for use in checking the current date against the events
+			// proposed date
+			var months = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec";
+			
+			// Month value selected by user
+			var formMonth = document.forms["eventForm"]["dateMonth"].value;
+			// Convert the month from a 3 char string to a number using
+			// the months string.
+			var eventMonth = months.indexOf(formMonth) / 4;
+			
+			// Day value selected by user
+			var eventDay = document.forms["eventForm"]["dateDay"].value;
+			
+			// Year value selected by user
+			var eventYear = document.forms["eventForm"]["dateYear"].value;
+			
+			// Create a Date object using the event date values
+			var eventDate = new Date();
+			eventDate.setFullYear(eventYear,eventMonth,eventDay);
+			
+			if(eventDate < todayDate)
+			{
+				alert("The selected date has already passed!");
+				return false;
+			}
+			
+			// If everything is valid
+         return true;
+     }
+</script>
+<?= closeHeader()?>
+<h1><div>
+<div class="left">Create an event</div><div class="right"><?
+       #check for the login or "you are logged in as" bit
+       if($this->session->userdata('username')){
+           echo "Logged in as: " . $this->session->userdata('username') . " ";
+           echo "<a href='" . site_url() . "/logout'>|Logout|</a>";
+       } else {
+           echo '<a href="index.php/login">Login</a>';
+       }
+?></div>
+</div>
+</h1>
+
+<div id="body">
+<p>
+Fill in the information for your event!
+<form name="eventForm" method="post" onsubmit="validate()">
+       Title: <input type="text" name="eventTitle" size=50><br>
+       Month: <select name="dateMonth">
+       <option value="Jan">January</option>
+       <option value="Feb">February</option>
+       <option value="Mar">March</option>
+       <option value="Apr">April</option>
+       <option value="May">May</option>
+       <option value="Jun">June</option>
+       <option value="Jul">July</option>
+       <option value="Aug">August</option>
+       <option value="Sep">September</option>
+       <option value="Oct">October</option>
+       <option value="Nov">November</option>
+       <option value="Dec">December</option>
+       </select>
+       Day: <select name="dateDay"><? 
+       for($i=1; $i<=31;$i++){
+           echo '<option value="' . $i . '">' . $i . "</option>\n";
+       }?>
+       </select>
+       Year: <select name="dateYear"><?
+       for($i=2011; $i<=2015;$i++){
+           echo '<option value="' . $i . '">' .$i . "</option>\n";
+       }?></select><br>
+       Start Address: <input type="text" name="startAddr" size=40><br>
+       End Address: <input type="text" name="endAddr" size=40><br>
+       <!-- THIS NEEDS A BIG TEXTBOX! -->
+       Description: <input type="text" name="description" size=50 height=50><br>
+       Visibility: <input type="radio" name="vis" value="public" checked>Public</input> <input type="radio" name="vis" value="private">Private</input><br>
+
+       <input type="submit">
+</form>
+
+</p>
+</div>
+
+<?echo generateFooter()?>

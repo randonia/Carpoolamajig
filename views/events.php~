@@ -1,0 +1,1 @@
+<?= generateHeader($title,base_url())?>
