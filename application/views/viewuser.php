@@ -22,7 +22,7 @@
 			<legend><?= $username . "'" ?>s Bio</legend>
 			<ol>
 				<li>
-					<?=makeAvatarImage($avatarURL)?>
+                                      <?if($avatarURL != ""){echo makeAvatarImage($avatarURL);}?>
 				</li>
 				<li>
 					Bio:<br>
@@ -55,6 +55,7 @@
 					</ol>
 				</li>
 			</ol>
+<a href=<?='"' . site_url() . '/users/editUser/'.$this->session->userdata('username').'">Edit Your Profile</a>'?>
 		</fieldset>
 	</div>
 </div>

@@ -2,7 +2,7 @@
 <?= closeHeader()?>
 
 <h1>
-<div class="left">Carpoolamajig : Search</div><div class="right">
+<div class="left">Carpoolamajig : Users List</div><div class="right">
 	<?
        if($this->session->userdata('username')){
            echo "Logged in as: " . $this->session->userdata('username') . " ";
@@ -18,7 +18,7 @@
 	<?= generateNavBar()?>
 	
    <p>
-		A list of things I give a fuck about:
+    <?=$bigassListOfUsers?>
 	</p>
 </div>
 

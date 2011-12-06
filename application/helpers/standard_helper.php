@@ -118,4 +118,7 @@ function makeAvatarImage($url){
     }
     return '<img src="' . $url . '" width="' . $width * $scalar . '" height="' . $height * $scalar . '" />';
 }
+function makeUserLink($username){
+    return '<a href="' . site_url() . '/users/showUser/'.$username.'" target="_blank">' . $username . '</a>';
+}
 ?>

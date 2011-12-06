@@ -15,12 +15,32 @@ class Users extends CI_Controller{
         }
     }
 
+    function listUsers(){
+        if($this->session->userdata('username')){
+            #load the view now :D
+            $data['title'] = "Users List";
+            $this->db->select('username');
+            $query = $this->db->get('users');
+            $data['bigassListOfUsers'] = '';
+            foreach($query->result() as $row){
+                $data['bigassListOfUsers'] .= makeUserLink($row->username) . "<br>";
+            }
+            $this->load->view("users_list",$data); #change this
+        } else {
+            #if you aren't logged in, redirect to the login page
+            #and include the destination session data so it knows where to 
+            #send you
+            $this->session->set_flashdata('error','You need to be logged in to view this page');
+            $this->session->set_userdata('destination',"/users/listUsers");
+            redirect("login","refresh");
+        }
+    }
     
     function showUser($username=''){
         #if no argument is provided, do this
         if($username=='' && !$this->session->userdata('username')){
             redirect(site_url(),"refresh");
-        } else if($this->session->userdata('username')){
+        } else if($this->session->userdata('username') && $username == ''){
             $username = $this->session->userdata('username');
         }
         $data['title'] = $username . "'s Profile!"; #and you guys were yelling at me for exlaimation marks :<
@@ -143,7 +163,7 @@ class Users extends CI_Controller{
             #Update the email given
             $derpta['email'] = $_POST['email'];
             $derpta['avatarURL'] = $_POST['avatarURL'];
-            echo $_POST['avatarURL'];
+
             #poke around the users database now
             $this->db->where('username',$username);
             $this->db->update('users',$derpta);
