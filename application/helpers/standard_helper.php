@@ -27,10 +27,10 @@ function closeHeader(){
 function generateNavBar(){
 	$result = "<p class ='nav'>\n";
 	$result .="<a class='inNav' href=".site_url().">Home</a><br>\n";
-	$result .="<a class='inNav' href=".site_url()."/calendar>Calendar</a><br>\n";
-	$result .="<a class='inNav' href=".site_url()."/events>My Events</a><br>\n";
 	$result .="<a class='inNav' href=".site_url()."/users/showUser/>My Profile</a><br>\n";
-	$result .="<a class='inNav' href=".site_url()."/search>Search</a><br>\n";
+	$result .="<a class='inNav' href=".site_url()."/events>My Events</a><br>\n";
+	$result .="<a class='inNav' href=".site_url()."/calendar>Calendar</a><br>\n";
+	$result .="<a class='inNav' href=".site_url()."/users/listUsers>Users List</a><br>\n";
 	$result .="</p>\n";
 	return $result;
 }
@@ -119,6 +119,6 @@ function makeAvatarImage($url){
     return '<img src="' . $url . '" width="' . $width * $scalar . '" height="' . $height * $scalar . '" />';
 }
 function makeUserLink($username){
-    return '<a href="' . site_url() . '/users/showUser/'.$username.'" target="_blank">' . $username . '</a>';
+    return '<a class="inText" href="' . site_url() . '/users/showUser/'.$username.'" target="_blank">' . $username . '</a>';
 }
 ?>
