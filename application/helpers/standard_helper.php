@@ -100,4 +100,7 @@ function decodeText($text){
     return $res;
 }
 
+function makeLinkToEvent($id,$title){
+    return '<a class="inText" href="' . site_url() . '/events/showEvent/' . $id . '">' . $title . '</a>';
+}
 ?>

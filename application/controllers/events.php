@@ -4,6 +4,31 @@ class Events extends CI_Controller{
         if($this->session->userdata('username')){
             #load the view now :D
             $data['title'] = "Carpoolmajig Events Page";
+            #This will be the "Bigass List of Events you're attending"
+            $data['bigassListOfEventsAttending'] = "";
+            #This will be the "Bigass list of Events that you own"
+            $data['bigassListOfPwnedEvents'] = "";
+            #Go through ALL OF THE GODAMN EVENTS and see what events you're attending
+            $this->db->select('*');
+            $query = $this->db->get('events');
+            foreach($query->result() as $row){
+                #IF this person owns it, add them to the thingy
+                $arr = explode('|',$row->permissionedPeople);
+                if($arr[1] == $this->session->userdata('username')){
+                    $str = makeLinkToEvent($row->uuid,$row->title);
+                    $data['bigassListOfPwnedEvents'] .= $str . "<br>";
+                    $data['bigassListOfEventsAttending'] .= $str . "<br>";
+                    continue;
+                }
+                #see if this person is in the permissioned people
+                for($i=0; $i<count($arr); $i++){
+                    if($arr[$i] == $this->session->userdata('username')){
+                        #toss it on in!
+                        $data['bigassListOfEventsAttending'] .= makeLinkToEvent($row->uuid,$row->title);
+                    }
+                }
+            }
+
             $this->load->view("events",$data);
         } else {
             #if you aren't logged in, redirect to the login page

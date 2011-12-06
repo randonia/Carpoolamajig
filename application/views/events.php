@@ -18,8 +18,9 @@
 		<?= generateNavBar()?>
 
 	<p>
-		THIS IS WHERE THE CALENDAR OF EVENTS GOES!<br>
 		<a class="inText" href="<?=site_url()."/events/createEvent"?>">Create an event yo!</a>
+        <br>Events You Created:<br>   <?= $bigassListOfPwnedEvents?>
+        <br>Events You Are Participating In:<br>   <?= $bigassListOfEventsAttending?>
 	</p>
 	
 </div>
