@@ -51,6 +51,7 @@ class Users extends CI_Controller{
             $data['carGasComp'] = $row->carGasComp;
             $data['carAmenities'] = $row->carAmenities;
             $data['numRides'] = $row->numRides;
+				$data['avatarURL'] = $row->avatarURL;
         }
         
         #start lookin at riderBios
@@ -100,6 +101,7 @@ class Users extends CI_Controller{
             $data['carGasComp'] = $row->carGasComp;
             $data['carAmenities'] = $row->carAmenities;
             $data['numRides'] = $row->numRides;
+				$data['avatarURL'] = $row->avatarURL;
         }
         
         #start lookin at riderBios

@@ -23,6 +23,10 @@
 				<legend>Edit your profile!</legend>
 				<ol>
 					<li>
+						<label>Set Avatar URL:</label>
+						<input type="text" name="avatarURL" value="<?=$avatarURL?>">
+					</li>
+					<li>
 						<label>Username:</label>
 						<input disabled value="<?=$username?>">
 					</li>

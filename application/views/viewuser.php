@@ -22,6 +22,9 @@
 			<legend><?= $username ?>'s Bio</legend>
 			<ol>
 				<li>
+					<img src="<?=$avatarURL?>" />
+				</li>
+				<li>
 					Bio:<br>
 					<?= $bio ?>
 				</li>
