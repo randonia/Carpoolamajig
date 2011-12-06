@@ -1,0 +1,298 @@
+VALIDATION ERRORS
+
+index.php
+
+1. Line 13, Column 18: document type does not allow element "DIV" here; missing one of "OBJECT", "MAP", "BUTTON" start-tag
+   <div class="left">Carpoolamajig : Home</div><div class="right">
+
+   Solution: take <div> out of <h1>, ruins formatting
+   
+2. Line 13, Column 63: document type does not allow element "DIV" here; missing one of "OBJECT", "MAP", "BUTTON" start-tag
+   <div class="left">Carpoolamajig : Home</div><div class="right">
+   
+   Solution: same solution as above.
+
+//3. Line 19, Column 28: NET-enabling start-tag requires SHORTTAG YES
+   <a class='inNav' href=http://carpoolamajig.com/index.php>Home</a><br>
+
+   Solution: Fix all navbar links. They need quotes.
+
+//4. Line 19, Column 65: end tag for element "A" which is not open
+   <a class='inNav' href=http://carpoolamajig.com/index.php>Home</a><br>
+   
+   Solution: same as above
+
+//5. Line 20, Column 28: NET-enabling start-tag requires SHORTTAG YES
+   <a class='inNav' href=http://carpoolamajig.com/index.php/users/showUser/>My Pro…
+   
+   Solution: href needs quotes again
+
+//6. Line 20, Column 87: end tag for element "A" which is not open
+   …Nav' href=http://carpoolamajig.com/index.php/users/showUser/>My Profile</a><br>
+   
+   Solution: same as above
+
+//7. Line 21, Column 28: NET-enabling start-tag requires SHORTTAG YES
+   <a class='inNav' href=http://carpoolamajig.com/index.php/events>My Events</a><b…
+   
+   Solution: same as above
+
+//8. Line 21, Column 77: end tag for element "A" which is not open
+   … class='inNav' href=http://carpoolamajig.com/index.php/events>My Events</a><br>
+   
+   Solution: same as above
+
+//9. Line 22, Column 28: NET-enabling start-tag requires SHORTTAG YES
+   <a class='inNav' href=http://carpoolamajig.com/index.php/calendar>Calendar</a><…
+   
+   Solution: same as above
+
+//10. Line 22, Column 78: end tag for element "A" which is not open
+   …class='inNav' href=http://carpoolamajig.com/index.php/calendar>Calendar</a><br>
+   
+   Solution: same as above
+
+//11. Line 23, Column 28: NET-enabling start-tag requires SHORTTAG YES
+    <a class='inNav' href=http://carpoolamajig.com/index.php/users/listUsers>Users …
+	
+	Solution: same as above
+
+//12. Line 23, Column 87: end tag for element "A" which is not open
+    …Nav' href=http://carpoolamajig.com/index.php/users/listUsers>Users List</a><br>
+	
+	Solution: same as above. BASICALLY, fix the nav bar links.
+	
+
+	
+
+login
+	
+13. Line 13, Column 18: document type does not allow element "DIV" here; missing one of "OBJECT", "MAP", "BUTTON" start-tag
+    <div class="left">Carpoolamajig : Login</div><div class="right">
+	
+	Solution: take <div> out of <h1>, ruins formatting
+
+14. Line 13, Column 64: document type does not allow element "DIV" here; missing one of "OBJECT", "MAP", "BUTTON" start-tag
+    <div class="left">Carpoolamajig : Login</div><div class="right">
+	
+	Solution: same as above
+
+15. Line 44, Column 5: character data is not allowed here
+		Need an  an account? Register <a class="inText" href="http://carpoolamajig.…
+    
+	Solution: This text needs to be in a <p> but document doesn't allow <p> in <li>, ruins formatting
+	
+16. Line 44, Column 103: document type does not allow element "A" here; assuming missing "LI" start-tag
+		…lass="inText" href="http://carpoolamajig.com/index.php/register">here!</a><br> 
+	
+	Solution: link needs to be in a <li>, ruins formatting
+
+//17. Line 34, Column 18: reference to non-existent ID "USERNAME"
+		<label for="username">Username:</label>
+
+	Solution: add id 'username'
+	
+//18. Line 38, Column 18: reference to non-existent ID "PASSWORD"
+		<label for="password">Password:</label>
+
+	Solution: add id attr 'password'
+	
+	
+	
+	
+	
+	
+register
+	
+19. Line 84, Column 18: document type does not allow element "DIV" here; missing one of "OBJECT", "MAP", "BUTTON" start-tag
+    <div class="left">Carpoolamajig : Register</div><div class="right">
+	
+	Solution: take <div> out of <h1>, ruins formatting
+
+20. Line 84, Column 67: document type does not allow element "DIV" here; missing one of "OBJECT", "MAP", "BUTTON" start-tag
+	<div class="left">Carpoolamajig : Register</div><div class="right">
+	
+	Solution: same as above
+
+//21. Line 105, Column 18: reference to non-existent ID "USERNAME"
+		<label for="username">Username:</label>
+		
+	Solution: add id attr 'username'
+
+//22. Line 109, Column 18: reference to non-existent ID "PASSWORD1"
+		<label for="password1">Password:</label>
+		
+	Solution: add id attr 'password1'
+
+//23. Line 113, Column 18: reference to non-existent ID "PASSWORD2"
+		<label for="password2">Confirm Password:</label>
+		
+	Solution: add id attr 'password2'
+
+//24. Line 117, Column 18: reference to non-existent ID "EMAIL"
+		<label for="email">E-mail:</label>
+		
+	Solution: add id attr 'email'
+	
+	
+	
+	
+	
+resetPassword
+	
+25. Line 13, Column 18: document type does not allow element "DIV" here; missing one of "OBJECT", "MAP", "BUTTON" start-tag
+		<div class="left">Carpoolamajig : Password Reset</div><div class="right">
+		
+	Solution: take <div> out of <h1>, ruins formatting
+
+26. Line 13, Column 73: document type does not allow element "DIV" here; missing one of "OBJECT", "MAP", "BUTTON" start-tag
+		<div class="left">Carpoolamajig : Password Reset</div><div class="right">
+		
+	Solution: same as above
+
+//27. Line 40, Column 25: value of attribute "TYPE" cannot be "EMAIL"; must be one of "TEXT", "PASSWORD", "CHECKBOX", "RADIO", "SUBMIT", "RESET", "FILE", 	
+	"HIDDEN", "IMAGE", "BUTTON"
+		<input type="email" name="email">
+		
+	Solution: change type to text?
+
+//28. Line 35, Column 19: reference to non-existent ID "USERNAME"
+		<label for="username">Username:</label>
+		
+	Solution: add attr id 'username'
+
+//29. Line 39, Column 19: reference to non-existent ID "EMAIL"
+		<label for="email">Email:</label>
+		
+	Solution: add attr id 'email'
+
+	
+	
+	
+	
+showUser
+	
+30. Solution: Needs the generateHeader/closeHeader functions (missing text encoding, etc)
+
+
+
+
+
+events
+
+31. Solution: needs generateHeader/closeHeader functions
+
+
+
+
+
+createEvent
+
+32. Solution: needs generateHeader/closeHeader functions
+
+
+
+
+
+
+showEvent
+
+33. Line 32, Column 18: document type does not allow element "DIV" here; missing one of "OBJECT", "MAP", "BUTTON" start-tag
+		<div class="left">Carpoolamajig : View Event</div><div class="right">
+		
+	Solution: take <div> out of <h1>, ruins formatting
+
+34. Line 32, Column 69: document type does not allow element "DIV" here; missing one of "OBJECT", "MAP", "BUTTON" start-tag
+		<div class="left">Carpoolamajig : View Event</div><div class="right">
+		
+	Solution: same as before
+
+35. Line 59, Column 61: document type does not allow element "INPUT" here; missing one of "P", "H1", "H2", "H3", "H4", "H5", "H6", "PRE", "DIV", "ADDRESS" 		
+	start-tag
+		<input type="submit" value="Request Invitation to Event"><br>	
+		
+	Solution: put <input> in <p> or something
+	
+36. Line 59, Column 65: document type does not allow element "BR" here; missing one of "P", "H1", "H2", "H3", "H4", "H5", "H6", "PRE", "DIV", "ADDRESS" start-tag
+		<input type="submit" value="Request Invitation to Event"><br>
+		
+	Solution: same as above
+
+37. Line 59, Column 74: "FORM" not finished but containing element ended
+		<input type="submit" value="Request Invitation to Event"><br>
+		
+	Solution: close tag
+
+38. Line 63, Column 90: cannot generate system identifier for general entity "daddr"
+		…maps?saddr=1002+King+St+Santa+Cruz+CA&daddr=1156+High+St+Santa+Cruz+CA&hl=en&t…
+		
+	Solution: Apparent ampersands are bad in urls? can't see a way to fix this... This also caused a shitton of errors & warnings :/
+
+39. Line 63, Column 350: NET-enabling start-tag requires SHORTTAG YES
+		…C1156+High+St+Santa+Cruz+CA&sensor=false" height="400" width="400"/></a></span>
+		
+	Solution: remove / from end of img tag
+
+40. Line 63, Column 350: required attribute "ALT" not specified
+		…C1156+High+St+Santa+Cruz+CA&sensor=false" height="400" width="400"/></a></span>
+	
+	Solution: add alt attr
+	
+	
+	
+	
+	
+calendar
+
+41. Line 13, Column 18: document type does not allow element "DIV" here; missing one of "OBJECT", "MAP", "BUTTON" start-tag
+		<div class="left">Carpoolamajig : Calendar</div><div class="right">
+		
+	Solution: take div out of h1, ruins formatting
+
+42. Line 13, Column 67: document type does not allow element "DIV" here; missing one of "OBJECT", "MAP", "BUTTON" start-tag
+		<div class="left">Carpoolamajig : Calendar</div><div class="right">
+		
+	Solution: same as above
+
+43. Line 44, Column 163: element "CENTER" undefined
+		…an class="day_listing">6</span><center><a href="http://carpoolamajig.com/index…
+		
+	Solution: span's center wasn't working when I tried it, so not sure how to fix this...
+
+44. Line 44, Column 363: end tag for element "A" which is not open
+		…ng to Campus for a Final...</a><br></a></center></div></td><td><span class="da…
+		
+	Solution: have to edit the script for placing events in the calendar (in Calendar library)
+	
+	
+	
+	
+	
+	
+	
+listUsers
+
+45. Solution: needs generateHeader/closeHeader functions (encoding errors)
+
+
+
+
+
+
+editUser
+
+46. Line 13, Column 18: document type does not allow element "DIV" here; missing one of "OBJECT", "MAP", "BUTTON" start-tag
+		<div class="left">Carpoolamajig : Edit User</div><div class="right">'
+		
+	Solution: take div out of h1, ruins formatting
+
+47. Line 13, Column 68: document type does not allow element "DIV" here; missing one of "OBJECT", "MAP", "BUTTON" start-tag
+		<div class="left">Carpoolamajig : Edit User</div><div class="right">
+		
+	Solution: same as before
+
+48. 
+
+49. 
+
+50. 
