@@ -18,13 +18,15 @@ class Users extends CI_Controller{
     
     function showUser($username=''){
         #if no argument is provided, do this
-        if($username==''){
+        if($username=='' && !$this->session->userdata('username')){
             redirect(site_url(),"refresh");
+        } else if($this->session->userdata('username')){
+            $username = $this->session->userdata('username');
         }
         $data['title'] = $username . "'s Profile!"; #and you guys were yelling at me for exlaimation marks :<
         $data['username'] = $username;
         #get the id
-        $this->db->select('id');
+        $this->db->select('*');
         #from the db 'users' where username==$username
         $query = $this->db->get_where('users',array('username' => $username));
         #init $id because I don't know if the scope will pwn $id
@@ -32,9 +34,10 @@ class Users extends CI_Controller{
         #grab the id and send it to $id
         foreach($query->result() as $row){
             $id=$row->id;
+            $data['avatarURL'] = $row->avatarURL;
         }
         #now select bio
-        $this->db->select('bio');
+        $this->db->select('*');
         #from the bios db where id==$id
         $query = $this->db->get_where('bios',array('id'=>$id));
         #print it?
@@ -51,7 +54,6 @@ class Users extends CI_Controller{
             $data['carGasComp'] = $row->carGasComp;
             $data['carAmenities'] = $row->carAmenities;
             $data['numRides'] = $row->numRides;
-				$data['avatarURL'] = $row->avatarURL;
         }
         
         #start lookin at riderBios
@@ -82,6 +84,7 @@ class Users extends CI_Controller{
         foreach($query->result() as $row){
             $id=$row->id;
             $data['email'] = $row->email;
+            $data['avatarURL'] = $row->avatarURL;
         }
 
         #Grab the bios
@@ -101,7 +104,6 @@ class Users extends CI_Controller{
             $data['carGasComp'] = $row->carGasComp;
             $data['carAmenities'] = $row->carAmenities;
             $data['numRides'] = $row->numRides;
-				$data['avatarURL'] = $row->avatarURL;
         }
         
         #start lookin at riderBios
@@ -120,8 +122,6 @@ class Users extends CI_Controller{
             
 			
 			#TODO: Toss a fat error if they aren't logged in
-			
-			
             #Grab the ID for future use:
             $username = $this->session->userdata('username');
             #from the db 'users' where username==$username
@@ -142,6 +142,8 @@ class Users extends CI_Controller{
             }
             #Update the email given
             $derpta['email'] = $_POST['email'];
+            $derpta['avatarURL'] = $_POST['avatarURL'];
+            echo $_POST['avatarURL'];
             #poke around the users database now
             $this->db->where('username',$username);
             $this->db->update('users',$derpta);
