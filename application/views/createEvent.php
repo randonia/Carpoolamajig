@@ -153,7 +153,6 @@
 	<?= generateNavBar()?>
 	
 	<div id="wrap">
-<<<<<<< HEAD
 		<form name="eventForm" method="post" onsubmit="return validate()" action="addEvent">
 			<fieldset>
 				<legend>Create Event!</legend>
