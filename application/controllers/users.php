@@ -6,11 +6,11 @@ class Users extends CI_Controller{
     }
     
     function showUser($username=''){
-        #if no argument is provided, punch Ryan right in the dick
+        #if no argument is provided, do this
         if($username==''){
             redirect(site_url(),"refresh");
         }
-        $data['title'] = $username . "'s Profile!";
+        $data['title'] = $username . "'s Profile!"; #and you guys were yelling at me for exlaimation marks :<
         $data['username'] = $username;
         #get the id
         $this->db->select('id');
@@ -53,7 +53,7 @@ class Users extends CI_Controller{
 
     #edits the selected user
     function editUser($username=''){
-        #if no argument is provided, punch Ryan right in the dick
+        #if no argument is provided, do this
         if($username==''){
             redirect(site_url(),"refresh");
         }
@@ -103,7 +103,11 @@ class Users extends CI_Controller{
     #Code to actually toss shit into the database.
     function commitUserData(){
         if($_POST && $this->session->flashdata('status')=="editUserData" && $this->session->userdata('username')){
-            #TODO: Toss a fat error if they aren't logged in
+            
+			
+			#TODO: Toss a fat error if they aren't logged in
+			
+			
             #Grab the ID for future use:
             $username = $this->session->userdata('username');
             #from the db 'users' where username==$username
@@ -142,7 +146,7 @@ class Users extends CI_Controller{
             $this->db->update('poolerBios',$derpta);
 
         } else {
-            echo "FFFFFFFFUUUUUUUUUUUUUUUUU";
+            echo "<a href='http://www.reddit.com/r/fffffffuuuuuuuuuuuu'>Something has gone very wrong</a>";
         }
         redirect(site_url()."/users/showUser/$username","redirect");
     }

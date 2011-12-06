@@ -8,7 +8,7 @@ class Events extends CI_Controller{
         } else {
             #if you aren't logged in, redirect to the login page
             #and include the destination session data so it knows where to 
-            #send you so you don't have to get a dickpunch from Alex
+            #send you
             $this->session->set_flashdata('error','You need to be logged in to view this page');
             $this->session->set_userdata('destination','events');
             redirect("login","refresh");
@@ -49,13 +49,13 @@ class Events extends CI_Controller{
         # now we grab the max uuid to redirect the user to their just made
         # event page
         $this->db->select_max('uuid');
-        #fuck
-        $query = $this->db->get('events');
         #this
+        $query = $this->db->get('events');
+        #is
         $uuid = "";
-        #silly
+        #incredibly
         foreach($query->result() as $row){
-            #sauce
+            #silly
             $uuid = $row->uuid;
         }
         redirect(site_url() . "/events/showEvent/" . $uuid,"refresh");
@@ -103,7 +103,7 @@ class Events extends CI_Controller{
 
         #if invite exists, we're adminning, otherwise, it's a request
         if(isset($_POST['invite'])){
-            #check for user privies
+            #check for user privileges
             $query = $this->db->get_where('events',array('uuid'=>$id));
             $permPeople = "";
             foreach($query->result() as $row){

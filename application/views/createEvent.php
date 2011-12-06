@@ -196,7 +196,8 @@
 				City:<input type="text" name="endCity" size=40><br>
 				State:<input type="text" name="endState" size=40><br>
        <!-- THIS NEEDS A BIG TEXTBOX! -->
-       Description: <input type="text" name="description" size=50 height=50><br>
+	   <!-- There I fixed it. Probably. -->
+       Description: <input type="text" name="description" size=100 height=100><br>
        Visibility: <input type="radio" name="vis" value="public" checked>Public</input> <input type="radio" name="vis" value="private">Private</input><br>
 
        <input type="submit">

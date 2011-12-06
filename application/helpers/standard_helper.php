@@ -1,7 +1,7 @@
 <?
 #$-- includes.php Version 0.0.1 - Tuesday, October 11th 8:11am --$
 #This is where we will include a bunch of code for our project.
-#Let's make like good programmers and comment the balls out of this code.
+#Let's make like good programmers and comment the **** out of this code.
 
 #This code generates all the boring beginning stuff. Make sure to pass in a $data['title'] value
 function generateHeader($title, $baseURL){
@@ -46,7 +46,7 @@ function generateFooter(){
 
 #printLogin thing
 function printLoginCorner(){
-    #FIX THIS SHIT
+    #FIX THIS
 }
 
 #do some magic

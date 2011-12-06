@@ -10,7 +10,7 @@
 			// Check if it is filled out
 			if (check == null || check == "")
 			{
-				alert("I'm sorry you don't have any friends, but this field needs a username.");
+				alert("This field needs a username... you must have some friends to invite!");
 				return false;
 			}
 		}

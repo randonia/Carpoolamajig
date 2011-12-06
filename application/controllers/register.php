@@ -17,10 +17,10 @@ class Register extends CI_Controller{
       $data['title'] = "User Registration Page";
 	  # super simple validation.
       #******
-      #FIXME: We might need to make this less shitty
+      #FIXME: We might need to make this more elegant or whatever you want to call it
       #******
 	  if(!isset($_POST) || $_POST['username'] == "" || $_POST['password1'] == "" || $_POST['password2'] == "" || $_POST['email'] == ""){
-	     $data['errorcode'] = "You didn't do it right son";
+	     $data['errorcode'] = "You didn't do it right, son";
          #make it so the browser knows the current state of "wrong pass"
          #flash data (as opposed to session data) happens once. Pretty sexy
          $this->session->set_flashdata("state","registrationFailed");

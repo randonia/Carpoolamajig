@@ -16,7 +16,7 @@ class Calendar extends CI_Controller{
         
         #We've got out data array hrrr
         $data = array();
-        #go through each result and populate this data shits!
+        #go through each result and populate this data!
         foreach($query->result() as $row){
             #echo "Starting on " . print_r($row);
             #echo " :::" . date("d",$row->date);
@@ -28,18 +28,18 @@ class Calendar extends CI_Controller{
             } else {
                 unset($tPerms[0]);
                 #See if this username is in the permissioned people list
-                foreach($tPerms as $dick){
-                    if($dick == $username){
+                foreach($tPerms as $hair){
+                    if($hair == $username){
                         $permFlag = true;
-                        #echo "WOOT $dick";
+                        #echo "WOOT $hair";
                         break;
                     }
                 }
             }
             
             if($permFlag){
-                #so if you have permission you ass
-                #This shit's complex
+                #so if you have permission you ask
+                #This stuff's complex
                 $data[date("j",$row->date)][$row->title] = site_url() . "/events/showEvent/$row->uuid";
             }
 #            echo "<br>";
