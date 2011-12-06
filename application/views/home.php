@@ -17,11 +17,12 @@
 <div id="body">
 	<?= generateNavBar()?>
 	
-    <p>This page/project still under development. <a href="http://cmps183-fall2011.soe.ucsc.edu/doku.php?id=carpoolamajig_project" class="inText">Here</a> is our class project page</p>
+   <p><? if(!$this->session->userdata('username')){ echo 'New to the site? You can register <a class="inText" href="'.site_url().'/register">here</a>';} ?>
+   <br><a href="http://cmps183-fall2011.soe.ucsc.edu/doku.php?id=carpoolamajig_project" class="inText">Here</a> is our class project page</p>
 	<p class="content">
 	This is a content-less page.<br>
 	<a href="http://www.youtube.com/watch?v=izGwDsrQ1eQ" class="inText">In the mean time, enjoy this.</a>
-	</p>
+	</p> 
 </div>
 
 <?= generateFooter()?>

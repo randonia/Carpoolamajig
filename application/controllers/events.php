@@ -36,7 +36,7 @@ class Events extends CI_Controller{
         if($_POST['vis'] == "public"){
             $ppeople = "-1" . "|" . $this->session->userdata('username');
         } else {
-            $ppeople = $this->session->userdata('username');
+            $ppeople = "1" . "|" . $this->session->userdata('username');
         }
         $query = array( 'date' => strtotime($intime),
             'title' => $_POST['eventTitle'],
