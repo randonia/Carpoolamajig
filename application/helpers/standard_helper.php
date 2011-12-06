@@ -27,9 +27,8 @@ function closeHeader(){
 function generateNavBar(){
 	$result = "<p class ='nav'>\n";
 	$result .="<a class='inNav' href=".site_url().">Home</a><br>\n";
-	$result .="<a class='inNav' href=".site_url()."/events>Events</a><br>\n";
 	$result .="<a class='inNav' href=".site_url()."/calendar>Calendar</a><br>\n";
-#	$result .="<a class='inNav' href='index.php/routes'>Routes</a><br>\n";
+	$result .="<a class='inNav' href=".site_url()."/events>My Events</a><br>\n";
 	$result .="<a class='inNav' href=".site_url()."/users>Users</a><br>\n";
 	$result .="<a class='inNav' href=".site_url()."/search>Search</a><br>\n";
 	$result .="</p>\n";

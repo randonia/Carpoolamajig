@@ -1,9 +1,20 @@
 <?
 class Users extends CI_Controller{
     function index(){
-        $data['title'] = "User page";
-        $this->load->view('users',$data);
+        if($this->session->userdata('username')){
+            #load the view now :D
+            $data['title'] = "User Page";
+            $this->load->view("users",$data); #change this
+        } else {
+            #if you aren't logged in, redirect to the login page
+            #and include the destination session data so it knows where to 
+            #send you
+            $this->session->set_flashdata('error','You need to be logged in to view this page');
+            $this->session->set_userdata('destination',"/users/editUser");
+            redirect("login","refresh");
+        }
     }
+
     
     function showUser($username=''){
         #if no argument is provided, do this
@@ -54,9 +65,10 @@ class Users extends CI_Controller{
     #edits the selected user
     function editUser($username=''){
         #if no argument is provided, do this
-        if($username==''){
+        if($username=='' && !$this->session->userdata('username')){
             redirect(site_url(),"refresh");
         }
+        $username = $this->session->userdata('username');
         $data['title'] = "Edit Profile";
         $data['username'] = $username;
         #get the ID

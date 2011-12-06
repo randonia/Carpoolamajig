@@ -15,9 +15,9 @@
 
 <?
 #Here we will figure out where to go:
-$dest = base_url();
+$dest = site_url();
 if($this->session->userdata('destination')){
-    $dest .= "index.php/" . $this->session->userdata('destination');
+    $dest .= $this->session->userdata('destination');
     $this->session->unset_userdata('destination');
 }
 ?>

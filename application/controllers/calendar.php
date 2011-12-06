@@ -12,6 +12,8 @@ class Calendar extends CI_Controller{
         $vars['title'] = "View Calendar";
         if($this->session->userdata('username')){
             $username = $this->session->userdata('username');
+        } else {
+            $username = null;
         }
         
         #We've got out data array hrrr
