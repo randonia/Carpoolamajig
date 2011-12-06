@@ -7,7 +7,7 @@ class Login extends CI_Controller{
     
     function commitForm(){
         $this->load->helper("url");
-        #query the db for the password shits
+        #query the db for the password
         $query = $this->db->get_where('users', array('username' => $_POST['username']));
         #go through your results (should only be one row)
         foreach($query->result() as $row){
@@ -40,7 +40,7 @@ class Login extends CI_Controller{
             #$tableData = array('');
             #$this->db->update('users',$tableData);
         #}
-        #generate some random text for this honky
+        #generate some random text for this gentleperson
         $str = randomTextGenerate();
 
         #update the database

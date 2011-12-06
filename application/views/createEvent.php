@@ -153,6 +153,7 @@
 	<?= generateNavBar()?>
 	
 	<div id="wrap">
+<<<<<<< HEAD
 		<form name="eventForm" method="post" onsubmit="return validate()" action="addEvent">
 			<fieldset>
 				<legend>Create Event!</legend>
@@ -258,6 +259,57 @@
 				</ol>
 			</fieldset>
 		</form>
+=======
+		Fill in the information for your event!
+<form name="eventForm" method="post" onsubmit="return validate()" action="addEvent">
+       Title: <input type="text" name="eventTitle" size=50><br>
+       Month: <select name="dateMonth">
+       <option value="Jan">January</option>
+       <option value="Feb">February</option>
+       <option value="Mar">March</option>
+       <option value="Apr">April</option>
+       <option value="May">May</option>
+       <option value="Jun">June</option>
+       <option value="Jul">July</option>
+       <option value="Aug">August</option>
+       <option value="Sep">September</option>
+       <option value="Oct">October</option>
+       <option value="Nov">November</option>
+       <option value="Dec">December</option>
+       </select>
+       Day: <select name="dateDay"><? 
+       for($i=1; $i<=31;$i++){
+           echo '<option value="' . $i . '">' . $i . "</option>\n";
+       }?>
+       </select>
+       Year: <select name="dateYear"><?
+       for($i=2011; $i<=2015;$i++){
+           echo '<option value="' . $i . '">' .$i . "</option>\n";
+       }?></select>
+		 Hour: <select name="dateHour"><?
+		 for($i=0; $i<=23; $i++){
+			  echo '<option value"' . $i . '">' . $i . "</option>\n";
+		 }?></select>
+		 Minutes: <select name="dateMin"><?
+		 for($i=0; $i<=55; $i+=5){
+			  echo '<option value"' . $i . '">' . $i . "</option>\n";
+		 }?></select><br>
+       Start Address: <br>
+				Street:<input type="text" name="startAddr" size=40><br>
+				City:<input type="text" name="startCity" size=40><br>
+				State:<input type="text" name="startState" size=40><br>
+       End Address:  <br>
+				Street:<input type="text" name="endAddr" size=40><br>
+				City:<input type="text" name="endCity" size=40><br>
+				State:<input type="text" name="endState" size=40><br>
+       <!-- THIS NEEDS A BIG TEXTBOX! -->
+	   <!-- There I fixed it. Probably. -->
+       Description: <input type="text" name="description" size=100 height=100><br>
+       Visibility: <input type="radio" name="vis" value="public" checked>Public</input> <input type="radio" name="vis" value="private">Private</input><br>
+
+       <input type="submit">
+</form>
+>>>>>>> df1972a2764fc9780fc2424ea0795c1471a680b6
 	</div>
 </div>
 

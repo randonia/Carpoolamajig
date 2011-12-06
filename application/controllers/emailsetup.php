@@ -17,7 +17,7 @@ class EmailSetup extends CI_Controller{
         $this->load->library('email');
         $this->email->to('randonia@ucsc.edu');
         $this->email->from('god@carpoolamajig.com','Gob');
-        $this->email->subject('Testies');
+        $this->email->subject('Tests');
         $this->email->message('Testing the email class!');
         $this->email->send();
         echo $this->email->print_debugger();
@@ -28,7 +28,7 @@ class EmailSetup extends CI_Controller{
         $this->load->library('email');
         $this->email->to('randonia@ucsc.edu');
         $this->email->from('god@carpoolamajig.com','Gob');
-        $this->email->subject('Testies #2');
+        $this->email->subject('Tests #2');
         $this->email->message('Testing the email class again!');
         $this->email->send();
         echo $this->email->print_debugger();
