@@ -16,7 +16,9 @@
 
 <div id="body">
 	<?= generateNavBar()?>
-	
+    <a class="inText" href=<?= site_url()."/calendar/$previousURI" ?>>Previous Month</a> | 
+    <a class="inText" href=<?= site_url()."/calendar/$todayURI" ?>>Current Month</a> | 
+    <a class="inText" href=<?= site_url()."/calendar/$nextURI" ?>>Next Month</a>
     <?=$calendar?>
 </div>
 

@@ -31,19 +31,27 @@ class Calendar extends CI_Controller{
                 foreach($tPerms as $hair){
                     if($hair == $username){
                         $permFlag = true;
-                        #echo "WOOT $hair";
                         break;
                     }
                 }
             }
             
             if($permFlag){
+                #grab the current date to make sure it's okay to show for this date
                 #so if you have permission you ask
                 #This stuff's complex
-                $data[date("j",$row->date)][$row->title] = site_url() . "/events/showEvent/$row->uuid";
+                #If year and month are not passed in as arguments, then we assume it's today
+                if($year=='' || $month==''){
+                    $year = date('Y',time());
+                    $month = date('n',time());
+                }
+                #check if the event should be viewed in this calendar
+                if($year == date('Y',$row->date) && $month == date('n',$row->date)){
+                    $data[date("j",$row->date)][$row->title] = site_url() . "/events/showEvent/$row->uuid";
+                }
             }
-#            echo "<br>";
         }
+#               Here is how to use the data array!
 #		$data = array( 
 #			5 => array('poo'=>'blah1','blah2'),
 #			20 => array('one of these things is not like the other')
@@ -53,13 +61,19 @@ class Calendar extends CI_Controller{
         $vars['calendar'] = $this->calendar->generate($year,$month, $data);
         $vars['year'] = $year;
         $vars['month'] = $month;
-        #
-        # FIXME: Toss some logic in here so it doesn't do that whole "negative a billion" thing
-        #
-        $vars['prevYear'] = intval($year) - 1;
-        $vars['prevMonth'] = intval($month) - 1;
-        $vars['nextYear'] = intval($year) + 1;
-        $vars['nextMonth'] = intval($month) + 1;
+        
+        if($month == 1){
+            $vars['previousURI'] = strval($year-1) . "/" . "12";
+            $vars['nextURI'] = strval($year) . "/" . "2";
+        } else if ($month == 12){
+            $vars['previousURI'] = strval($year) . "/" . "11";
+            $vars['nextURI'] = strval($year+1) . "/" . "1";
+        } else {
+            $vars['previousURI'] = strval($year) . "/" . strval($month-1);
+            $vars['nextURI'] = strval($year) . "/" . strval($month+1);
+        }
+        $vars['todayURI'] = strval(date('Y',time())) . "/" . strval(date('n',time()));
+
 		$this->load->view('calendar', $vars);
 	}
 }
