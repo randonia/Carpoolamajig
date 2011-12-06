@@ -30,15 +30,15 @@ class Events extends CI_Controller{
 
     function addEvent(){
         $data['title'] = "Event has been added";
-        $time = $_POST['dateDay'] . " " . $_POST['dateMonth'] . " " . $_POST['dateYear'] . " " . $_POST['dateHour'] . ":" . $_POST['dateMin'];
-        echo "<BR><BR>::" .$time ."<br><br>";
+        $intime = $_POST['dateDay'] . " " . $_POST['dateMonth'] . " " . $_POST['dateYear'] . " " . $_POST['dateHour'] . ":" . $_POST['dateMin'];
+#        echo "<BR><BR>::" .$intime ."<br><br>";
         $ppeople = -1;
         if($_POST['vis'] == "public"){
             $ppeople = "-1" . "|" . $this->session->userdata('username');
         } else {
             $ppeople = $this->session->userdata('username');
         }
-        $query = array( 'date' => strtotime($time),
+        $query = array( 'date' => strtotime($intime),
             'title' => $_POST['eventTitle'],
             'startAddr' => $_POST['startAddr'] . " " . $_POST['startCity'] . " " . $_POST['startState'],
             'endAddr' => $_POST['endAddr'] . " " . $_POST['endCity'] . " " . $_POST['endState'],

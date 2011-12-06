@@ -21,6 +21,6 @@ NOT IN ORDER OF IMPORTANCE
 
 8. Add some logic for Next and Previous month in the calendar
 
-9. Add side bar to showUser
+//9. Add side bar to showUser
 
 10. Rider and pooler score
